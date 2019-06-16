@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="select-case-color.css">
+        <link type="text/css" rel="stylesheet" href="color-picker-sample.css">
+    </head>
+
+    <body>
+        <div class="select-color">
+            <div class="color-picker">
+                <script>
+                    for(var i = 1; i < 17; i++) {
+                        document.write('<div class="result-color-' + i + '" onclick="myFunction(' + i + ')"></div>');
+                    }
+                </script>
+            </div>
+        </div>
+
+        <img src="Galaxy-Note-9/2.png" id="gn9">
+
+        <script>
+            function myFunction(x) {
+                document.getElementById("gn9").src="Galaxy-Note-9/"+ x +".png";
+            }
+        </script>
+    </body>
+</html>

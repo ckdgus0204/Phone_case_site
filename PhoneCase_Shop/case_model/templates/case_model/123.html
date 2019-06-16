@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="C:\Users\user\Desktop\새 폴더\custumize.css">
+    <style>
+		div {
+			
+			margin: 10px;
+			padding: 10px;
+			border: solid 15px #8B4513;
+			float: left;
+        }
+        table{
+            border-collapse: 0;
+            
+        }
+        tr,td{
+            border: solid black 1px;
+        }
+	</style>
+</head>
+<body>
+    
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+
+    <img src="Galaxy_S10+.png" alt=""style="position: absolute; left:520px;top:520px;width:220px;height:220px;">
+    <div ondrop="drop(event)" ondragover="dragEnter(event)" style="z-index: -1; position: absolute;left:500px;top:500px;width:200px;height:200px;">
+            
+    </div>
+
+    <script>
+        function dragEnter(ev) {
+            ev.preventDefault();
+            ev.dropEffect = "copy";
+
+        }
+
+        function drag(ev) {
+            
+            ev.dataTransfer.setData("text", ev.target.id);
+            ev.dropEffect = "copy";
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+
+</body>
+</html>
