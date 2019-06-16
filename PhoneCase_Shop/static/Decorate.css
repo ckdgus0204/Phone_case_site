@@ -1,0 +1,44 @@
+footer{
+    height:100px;
+    background-color: black;
+    text-align:center;
+    margin-top:20px;
+    padding:20px;
+    color:white;
+}
+header{
+    background-color:white;
+    width:100%;
+}
+nav.navleft{
+    
+    width:20%;
+    margin-top:20px;
+    margin-left:50px;
+   
+    display:inline-block;
+    
+}
+.input-group{
+    width: 130px;
+    margin: 0 auto;
+  }
+nav.navright{
+    float:right;
+    width:75%;
+    padding-left:25px;
+   
+    margin-top:20px;
+    text-align:left;
+    
+}
+img{
+    position:static;
+    float:right;
+    width:230px;
+    height: 200px;
+    background-color: azure;
+}
+body{
+    background-color: white;
+}

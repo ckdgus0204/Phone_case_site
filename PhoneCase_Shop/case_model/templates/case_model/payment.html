@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>결제</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+<link rel="stylesheet" href="Decorate.css">
+<link rel="stylesheet" href="contents.css">
+</head>
+<body>
+<header>
+    <div style="margin:20px;display:inline-block;width:300px;height:144px;">
+    <h2>주문하기</h2>
+    <h7>Order&Shipping Information</h7>
+    </div>
+    <img src="kakao.jpg">
+    <hr/>
+</header> 
+    <div style="margin-top:80px;margin-left:50px;padding:30px;border:1px solid gray;border-radius:10px;width:550px;display:inline-block;">
+    <h3>주문자 정보</h3>
+        <div class="input-group mb-3"style="width:500px;">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Name:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3"style="width:500px;">
+                <div class="input-group-prepend">
+                <span class="input-group-text" style="left:10px;"id="basic-addon2">Email:</span>
+            </div>
+                <input type="text" class="form-control" placeholder="Your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-prepend" style="width:50%;">
+                  <select  class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                      <option value="naver.com" >@naver.com</option>
+                      <option value="hanmail.net">@hanmail.net</option>
+                      <option value="google.com">@google.com</option>
+                      <option value="gmail.com">@gmail.com</option>
+                    </select>              
+                </div>
+        </div>
+        <div class="input-group mb-3"style="width:500px;">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">PhoneNum:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="PhoneNumber(숫자만)"aria-label="Default" aria-describedby="inputGroup-sizing-default">
+         </div>
+    </div>
+    <div style="margin-top:80px;padding:30px;border:1px solid gray;margin-right:20px;border-radius:10px;width:550px;float:right;">
+            <h3>결제 정보</h3><br/>
+            <div class="input-group mb-3"style="width:500px;">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text" id="">상품 금액<span id="productofprice" style="margin-left:340px;"></span></span>
+                            <script>
+                            var totalforpayment= localStorage.getItem("totalforpayment");
+                            document.getElementById("productofprice").innerHTML=totalforpayment+"원";
+                            </script>
+                         </div>
+                    
+            </div>
+            <div class="input-group mb-3"style="width:500px;">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text" id="">배송비</span>
+                          </div>
+                    
+             </div>
+             <br/>
+             <div class="input-group mb-3"style="width:500px;">
+                            <span class="input-group-text" id="" >총 결제금액<span style="width:800px;">원</span></span>
+             </div>
+       
+             <br/>
+             <hr/><br/>
+             <h3>결제수단</h3><br/>
+
+    <div class="form-check form-check-inline" style="padding-top:10px;padding-left:40px;">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="카드결제">
+            <label class="form-check-label" for="inlineCheckbox1"style="font-size:18pt;">카드결제</label>
+          </div>
+     <div class="form-check form-check-inline" style="padding-top:10px;padding-left:40px;">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="무통장입금">
+            <label class="form-check-label" for="inlineCheckbox2"style="font-size:18pt;">무통장입금</label>
+    </div>
+    <br/><br/><br/>
+     <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="float:right;">결제하기</a>
+     </div>
+    </div>
+   
+    <br/>
+    <div style="margin-top:40px;margin-left:50px;padding:30px;border:1px solid gray;border-radius:10px;width:550px;">
+    <h3>배송지 정보</h3>
+    <div class="input-group mb-3"style="width:500px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Name:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="">
+          </div>
+    <div class="input-group mb-3"style="width:500px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">PhoneNum:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="번호" aria-label="Username" aria-describedby="">
+    </div>
+    <div class="input-group mb-3"style="width:500px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Address:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="주소" aria-label="Username" aria-describedby="">
+        </div>
+    <div class="input-group mb-3"style="width:500px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text">With textarea</span>
+            </div>
+     <textarea class="form-control" style="width:300px"aria-label="With textarea"></textarea>
+     </div>
+     <br/>
+     <hr/><br/>
+     <h3>배송비 정보</h3><br/>
+     <div class="input-group mb-3"style="width:500px;">
+            <div class="input-group-prepend">
+                    <span class="input-group-text" id="">총 배송비<span style="width:800px;">원</span>
+            </div>      
+    </div>
+    </div>
+    <footer>
+        <p>@copyright by NickFuri</p>
+        <p>Team Avengers</p>
+    </footer>
+
+<!--<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+-->
+</body>
+</html>

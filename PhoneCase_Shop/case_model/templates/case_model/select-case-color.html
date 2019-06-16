@@ -1,27 +1,94 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="select-case-color.css">
-        <link type="text/css" rel="stylesheet" href="color-picker-sample.css">
-    </head>
 
-    <body>
-        <div class="select-color">
-            <div class="color-picker">
-                <script>
-                    for(var i = 1; i < 17; i++) {
-                        document.write('<div class="result-color-' + i + '" onclick="myFunction(' + i + ')"></div>');
-                    }
-                </script>
-            </div>
+<head>
+    <link type="text/css" rel="stylesheet" href="select-case-color.css">
+    <link type="text/css" rel="stylesheet" href="color-picker-sample.css">
+</head>
+
+<body>
+    <!-- 기종선택 먼저하고 색깔 고르자 -->
+        <select id="select-model" onChange="selectSub(this.value);">
+            <option value="">기종 선택</option>
+            <option value="note9">Galaxy Note 9</option>
+            <option value="s10+">Galaxy S10+</option>
+            <option value="8+">iPhone 7+ / 8+</option>
+            <option value="xs">iPhone XS</option>
+            <option value="v50">LG V50</option>
+        </select>
+
+
+        <!-- 색깔 고르는 거 -->
+    <div class="select-color">
+        <div class="color-picker">
+            <script>
+                for (var i = 1; i < 17; i++) {
+                    document.write('<div class="result-color-' + i + '" onclick="select(' + i + ')"></div>');
+                }
+            </script>
         </div>
+    </div>
 
-        <img src="Galaxy-Note-9/2.png" id="gn9">
-
-        <script>
-            function myFunction(x) {
-                document.getElementById("gn9").src="Galaxy-Note-9/"+ x +".png";
+    <script>
+        function selectSub(obj) {
+            
+            switch (obj) {
+                case 'note9':
+                    document.getElementById("result").innerHTML = "<img src='Galaxy-Note-9/2.png' id='note9'>";
+                     break;
+                case 's10+': 
+                    document.getElementById("result").innerHTML = "<img src='Galaxy-S10+/2.png' id='s10+'>";
+                     break;
+                case '8+': 
+                    document.getElementById("result").innerHTML = "<img src='iPhone-8+/2.png' id='8+'>";
+                     break;
+                case 'xs':
+                    document.getElementById("result").innerHTML = "<img src='iPhone-XS/2.png' id='xs'>";
+                     break;
+                case 'v50': 
+                    document.getElementById("result").innerHTML = "<img src='LG-V50/2.png' id='v50'>";
+                     break;
+                default: 
+                    document.getElementById("result").innerHTML = ""; 
+                    break;
             }
-        </script>
-    </body>
+        }
+    </script>
+
+    
+
+    <div id="result"></div>
+
+    <script>
+        function select(x) {
+
+            // 종류는 가져오기
+            // x는 색상
+            var type=document.getElementById("select-model").value;
+            if(type=='note9'){
+                document.getElementById("note9").src = "Galaxy-Note-9/" + x + ".png";
+            }
+            else if(type=='s10+'){
+                document.getElementById("s10+").src = "Galaxy-S10+/" + x + ".png";
+
+            }
+            else if(type=='8+'){
+                document.getElementById("8+").src = "iPhone-8+/" + x + ".png";
+
+            }
+            else if(type=='xs'){
+                document.getElementById("xs").src = "iPhone-XS/" + x + ".png";
+
+            }
+            else if(type=='v50'){
+                document.getElementById("v50").src = "LG-V50/" + x + ".png";
+
+            }
+        }
+    
+    </script>
+
+</body>
+
 </html>

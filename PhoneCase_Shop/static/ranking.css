@@ -1,0 +1,84 @@
+
+        body {
+            margin: 0;
+            min-width: 700px;
+        }
+        #header {
+            height: 300px;
+            background-color:cadetblue;
+        }
+        #footer {
+            height: 100px;
+            background-color: #151113;
+        }
+        .goods_container {
+            padding: 30px 30px 40px 30px;
+            border-bottom: 1px red solid;
+        }
+        .container-header {
+            display: flex;
+            align-items: center;
+            height: 36px;
+            margin-bottom: 30px;
+        }
+        .container-header h2 {
+            margin-right: auto;
+        }
+        .container-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .title {
+            margin: 0px 0px 8px 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .case_sample{
+            width: 270px;
+            height: 270px;
+            margin: 15px;
+        }
+        .case_sample_new img{
+            width: 270px;
+            height: 270px;
+            margin: 15px;
+        }
+        .best_icon{
+            width: 50px;
+            display:inline-block;
+        }
+        .case_sample_best {
+            width: 300px;
+            background-color:whitesmoke;
+            margin: 10px;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+        }
+        .case_sample_new {
+            width: 300px;
+            background-color:whitesmoke;
+            margin: 10px;
+            padding-bottom: 10px;
+        }
+        #tags-container {
+            padding: 30px 30px 40px 30px;
+        }
+        .tags {
+            width: 300px;
+            margin: 0 10px 10px 10px ;
+        }
+        .tags ul {
+            padding-left: 0;
+            margin: 0;
+        }
+        .tags li {
+            display: block;
+            padding-bottom: 10px;
+        }
+        .tags a {
+            text-decoration: none;
+        }
+        .tags a:link, .tags a:hover, .tags a:visited{
+            color: grey;
+        }

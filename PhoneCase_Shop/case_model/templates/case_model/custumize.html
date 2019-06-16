@@ -1,6 +1,24 @@
 <HTML>
     <HEAD>
     <TITLE> 자바스크립트 </TITLE>
+        <!-- bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <!-- bootstrap Js,JQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+        <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="select-case-color.css">
+        <link type="text/css" rel="stylesheet" href="color-picker-sample.css">
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    
     <style type="text/css">
     .phone_case{
         border:black solid 1px;
@@ -23,103 +41,91 @@
     }
     .right_side{
         
-
-        margin:100px;
+        width:40%;
+        height:800px;
+        float:right;
+        margin-top:60px;
+        border:black solid 1px;
     }
     .list_group{
         vertical-align: middle;
     }
 /*  bhoechie tab */
-div.bhoechie-tab-container{
-  z-index: 10;
-  background-color: #ffffff;
-  padding: 0 !important;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  border:1px solid #ddd;
-  margin-top: 20px;
-  margin-left: 50px;
-  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  background-clip: padding-box;
-  opacity: 0.97;
-  filter: alpha(opacity=97);
-}
-div.bhoechie-tab-menu{
-  padding-right: 0;
-  padding-left: 0;
-  padding-bottom: 0;
-}
-div.bhoechie-tab-menu div.list-group{
-  margin-bottom: 0;
-}
-div.bhoechie-tab-menu div.list-group>a{
-  margin-bottom: 0;
-}
-div.bhoechie-tab-menu div.list-group>a .glyphicon,
-div.bhoechie-tab-menu div.list-group>a .fa {
-  color: #5A55A3;
-}
-div.bhoechie-tab-menu div.list-group>a:first-child{
-  border-top-right-radius: 0;
-  -moz-border-top-right-radius: 0;
-}
-div.bhoechie-tab-menu div.list-group>a:last-child{
-  border-bottom-right-radius: 0;
-  -moz-border-bottom-right-radius: 0;
-}
-div.bhoechie-tab-menu div.list-group>a.active,
-div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
-div.bhoechie-tab-menu div.list-group>a.active .fa{
-  background-color: #5A55A3;
-  background-image: #5A55A3;
-  color: #ffffff;
-}
-div.bhoechie-tab-menu div.list-group>a.active:after{
-  content: '';
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  margin-top: -13px;
-  border-left: 0;
-  border-bottom: 13px solid transparent;
-  border-top: 13px solid transparent;
-  border-left: 10px solid #5A55A3;
-}
 
-div.bhoechie-tab-content{
-  background-color: #ffffff;
-  /* border: 1px solid #eeeeee; */
-  padding-left: 20px;
-  padding-top: 10px;
-}
+.nav-tabs li a {
+    color: #777;
+  }
 
-div.bhoechie-tab div.bhoechie-tab-content:not(.active){
-  display: none;
+.navbar {
+font-family: Montserrat, monospace;
+margin-bottom: 0;
+background-color: #2d2d30;
+border: 0;
+font-size: 21px !important;
+letter-spacing: 4px;
+opacity: 0.9;
 }
-.so{
+  .navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+    color: #fff !important;
+  }
+  .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  .open .dropdown-toggle {
+    color: #fff;
+    background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+    color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+    background-color: red !important;
+  }
+  footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+  }
+  footer a {
+    color: #f5f5f5;
+  }
+  footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }  
+  #Foot {
+    margin-top:30px;
+    color:white;
+    background-color: gray;
+    padding:20px;
     
 }
+footer{
+    clear:both;
+}
+#Foot a{
+    text-decoration: none;
+    text-decoration-color: rgb(245, 243, 243);
+    
+}
+th, td{
+    text-align: center;
+    vertical-align: middle;
+    margin :auto;
+}
+.table {
+    margin:50px;
+    height:600px;
+}
+
     </style>
-    <!-- bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- bootstrap Js,JQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
-    <link type="text/css" rel="stylesheet" href="select-case-color.css">
-    <link type="text/css" rel="stylesheet" href="color-picker-sample.css">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <script type="text/javascript">
     
@@ -172,166 +178,225 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     
     <body>
             
-<!------ Include the above in your HEAD tag ---------->
-
-            
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 bhoechie-tab-container" style="margin: 50px; height:70%;">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
-                <div class="list-group" >
-                    <a href="#" class="list-group-item active text-center"style="height:14%;">
-                        <h4 class="glyphicon glyphicon-plane"></h4><br/>캐릭터
-                    </a>
-                    <a href="#" class="list-group-item text-center"style="height:14%;">
-                        <h4 class="glyphicon glyphicon-road"></h4><br/>레터링
-                    </a>
-                    <a href="#" class="list-group-item text-center"style="height:14%;">
-                        <h4 class="glyphicon glyphicon-home"></h4><br/>카드지갑
-                    </a>
-                    <a href="#" class="list-group-item text-center"style="height:14%;">
-                        <h4 class="glyphicon glyphicon-cutlery"></h4><br/>그립톡                        
-                    </a>
-                    <a href="#" class="list-group-item text-center"style="">
-                        <h4 class="glyphicon glyphicon-credit-card"></h4><br/>핑거 링
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
-                <!-- character section -->
-                <div class="bhoechie-tab-content active">
-                    
-                    <center>
-                        <table class="tab_table" >
-                            <tr>
-                                <td>
-                                    <img class="drag" width="100" height="150" src="/static/kakao.jpg"  >
-                                </td>
-                                <td>
-                                    <img class="drag" width="100" height="150" src="/static/new.png" >
-                                </td>
-                                <td>
-                                    <img class="drag" width="100" height="150" src="/static/trophy.png" >
-                                </td>
-                                <td>
-                                        <img class="drag" width="100" height="150" src="/static/trophy.png" >
-                                        
-                                    </td>
-                                    
-                            </tr>
-                    
-                            
-                                <tr>
-                                    <td>    
-                                        <img class="drag" width="100" height="150" src="/static/rank.png" >
-                                    </td>
-                                </tr>
-                            </table>
-                    </center>
-                </div>
-                <!-- lettering section -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a"></h3>
-                        <h3 class="drag" id="custumtext">오퓨리</h3>
-                        
-                            <input type="text" id="newtext">
-                            <button onclick="Changetext()">
-                                <script>
-                                    function Changetext(){
-                                        var a =document.getElementById("newtext").value;
-                                        document.getElementById("custumtext").innerHTML=a;
-                                    }
-                                </script>
-                            </button>
-                        
-                    </center>
-                </div>
-
-                <!-- card search -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a"></h3>
-                    </center>
-                </div>
-                <!-- griptok tab -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a"></h3>
-                    </center>
-                </div>
-                <!-- finger tab -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
-                    </center>
-                </div>
-            </div>
+    <!-- navbar start -->
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#myPage">Nick Fury's caseshop</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="main.html">HOME</a></li>
+              <li><a href="ranking.html">Rank</a></li>
+              <li><a href="new.html">New</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
         </div>
-            
-      
-        <div class="right_side" style="margin:50px;">
-            <select class="custom-select custom-select-lg mb-4" style="max-width:300px;">
-                <option selected>Select brand</option>
-                <option value="1">Samsung</option>
-                <option value="2">Apple</option>
-                <option value="3">LG</option>
-                </select>
-                    
-            <select class="custom-select custom-select-lg mb-4"style="max-width:300px;">
-                <option selected>Select model</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+      </nav>
+      <!-- navbar end -->
 
-            <!-- show the case -->
-            <div class="phone_case" style="width:450px; float:right; margin-right:20px; ">
-                <div class="select-color">
-                    <div class="color-picker">
-                        <script>
-                            for(var i = 1; i < 17; i++) {
-                                document.write('<div class="result-color-' + i + '" onclick="myFunction(' + i + ')"></div>');
-                            }
-                        </script>
-                        
-                    </div>
-                </div>
+    <!-- attach items -->
+    
+      <table class="table table-borderless "style="float:left; width:50%; border:solid black 1px;">
+            
+        <tbody>
+          <tr>
+            <th scope="row"rowspan="2" >캐릭터<br>
+              <h1 class="glyphicon glyphicon-plane" aria-hidden="true">
                 
-                <div class="so">
-                    
-                    <img  src="/static/Galaxy-Note-9/2.png" id="gn9"  style="height:100%; float: right;" >
-                    <input type="button" value="캡쳐"id="button2">
-                </div>
-                 
+              </h1>
+            </th>
+            <td>
+                <img class="drag" width="100" height="150" src="sticker/bear.png" >
+            </td>
+            <td>
+                <img class="drag" width="100" height="150" src="sticker/toystory.png" >
+            </td>
+            <td>
+                <img class="drag" width="100" height="150" src="parts/12.png">
+            </td>
+          </tr>
+          <tr>
+            
+              <td>
+                  <img class="drag" width="100" height="150" src="sticker/character/2.png">
+              </td>
+              <td>    
+                  <img class="drag" width="100" height="150" src="marvel.png">
+              </td>
+              <td>    
+                  <img class="drag" width="100" height="150" src="sticker/simple/2.png">
+              </td>
+          </tr>
+          <tr>
+          <th scope="row"rowspan="2" >레터링<br><h1 class="glyphicon glyphicon-font" aria-hidden="true"></h1></th>
+          
+          
+          
+            <td colspan="3">
+              <center>
+                  
+                  
                 <script>
-                    function myFunction(x) {
-                        document.getElementById("gn9").src="/static/Galaxy-Note-9/"+ x +".png";
+                    var num=0;
+                    var b=0;
+                    for(var i=0;i<2;i++) {
+                    document.write('<h3 class="drag" id="custumtext" name="text"></h3>');
+                    document.write('<input type="text" id="newtext" class="newtext1">');
+                    document.write('<button onclick="Changetext()"></button>');
                     }
-                </script>
-                <div class="order_button">
-                    <br>
-                    <br>
                     
-                    <br>
-                    <h3>배송비 : </h3>
-                    <h3>가격 : </h3>
-                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="float:right">
-                        <button type="button" class="btn btn-secondary">장바구니</button>
-                        <button type="button" class="btn btn-secondary">주문하기</button>
-                        
-                    </div>
-                </div>
-            </div>
+                    function Changetext(){
+                    var a=document.getElementsByClassName("newtext1")[num].value;
+                    document.getElementsByName("text")[num].innerHTML=a;
+                    num++;
+                    
+                }
+                </script>
+            </center>
+            </td>
+          <tr>
+            <td></td><td></td><td></td>
+          </tr>
+          
+          
+          <th scope="row"rowspan="2" >그립<br><h1 class="glyphicon glyphicon-pawn" aria-hidden="true"></h1></th>
+          <td>
+            <img class="drag" width="100" height="150" src="griptok/1.png">
+        </td>
+          <td><img class="drag" width="100" height="150" src="griptok/2.png"></td>
+          <td><img class="drag" width="100" height="150" src="griptok/3.png"></td>
+          </tr>
+          <tr>
+          
+            <td><img class="drag" width="100" height="150" src="griptok/4.png"></td>
+            <td><img class="drag" width="100" height="150" src="griptok/5.png"></td>
+            <td><img class="drag" width="100" height="150" src="griptok/6.png"></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <!-- items end -->
+
+
+        <div class="right_side">
+            <!-- 기종선택 먼저하고 색깔 고르자 -->
+        <select id="select-model" onChange="selectSub(this.value);">
+            <option value="">기종 선택</option>
+            <option value="note9">Galaxy Note 9</option>
+            <option value="s10+">Galaxy S10+</option>
+            <option value="8+">iPhone 7+ / 8+</option>
+            <option value="xs">iPhone XS</option>
+            <option value="v50">LG V50</option>
+        </select>
+
+        <!-- 색깔 고르는 거 -->
+    <div class="select-color">
+        <div class="color-picker">
+            <script>
+                for (var i = 1; i < 17; i++) {
+                    document.write('<div class="result-color-' + i + '" onclick="select(' + i + ')"></div>');
+                }
+            </script>
         </div>
+    </div>
+
+    <script>
+        function selectSub(obj) {
+            
+            switch (obj) {
+                case 'note9':
+                    document.getElementById("result").innerHTML = "<img src='Galaxy-Note-9/2.png' id='note9'>";
+                     break;
+                case 's10+': 
+                    document.getElementById("result").innerHTML = "<img src='Galaxy-S10+/2.png' id='s10+'>";
+                     break;
+                case '8+': 
+                    document.getElementById("result").innerHTML = "<img src='iPhone-8+/2.png' id='8+'>";
+                     break;
+                case 'xs':
+                    document.getElementById("result").innerHTML = "<img src='iPhone-XS/2.png' id='xs'>";
+                     break;
+                case 'v50': 
+                    document.getElementById("result").innerHTML = "<img src='LG-V50/2.png' id='v50'>";
+                     break;
+                default: 
+                    document.getElementById("result").innerHTML = ""; 
+                    break;
+            }
+        }
+    </script>
+
+    
+
+    <div id="result"></div>
+
+    <script>
+        function select(x) {
+
+            // 종류는 가져오기
+            // x는 색상
+            var type=document.getElementById("select-model").value;
+            if(type=='note9'){
+                document.getElementById("note9").src = "Galaxy-Note-9/" + x + ".png";
+            }
+            else if(type=='s10+'){
+                document.getElementById("s10+").src = "Galaxy-S10+/" + x + ".png";
+
+            }
+            else if(type=='8+'){
+                document.getElementById("8+").src = "iPhone-8+/" + x + ".png";
+
+            }
+            else if(type=='xs'){
+                document.getElementById("xs").src = "iPhone-XS/" + x + ".png";
+
+            }
+            else if(type=='v50'){
+                document.getElementById("v50").src = "LG-V50/" + x + ".png";
+
+            }
+        }
+    
+    </script>
+    </div>
 
         
+    <!-- print Footer informations of us -->
+    <footer>
+            <div class="inner_footer">
+                    <h2 class="screen_out">서비스 이용정보</h2>
+                    <div class="info_service">
+                        <a href="#" class="link_service">개인정보처리방침</a>
+                        <a href="#" class="link_service link_service2">이용약관</a>
+                        <a href="#" target="_blank" class="link_service link_service2">제휴문의</a>
+                        </div>
+                    <small class="info_copy">
+                        <span class="txt_copy">사업자등록번호 : 123-45-67890</span>
+                        <br>
+                        <span class="txt_copy">대표이사 : Ji Young Oh</span>
+                        <br>
+                        <span class="txt_copy">주소 : 충청북도 청주시 충대로1 충북대학교 S4-1</span>
+                        <br>
+                        <span class="txt_copy">고객센터 : 010-6364-7136 / 평일 10시 ~ 18시</span>
+                        <br>
+                        
+                        <br>
+                        <span class="txt_corp">Copyright © Nick Fury</span>
+                    </small>
+                </div>
+            </div>
+    </footer>
+        
+
        
     </body>
     
