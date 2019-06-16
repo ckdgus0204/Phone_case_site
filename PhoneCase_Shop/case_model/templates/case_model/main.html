@@ -101,12 +101,11 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">HOME</a></li>
-          <li><a href="#band">Rank</a></li>
-          <li><a href="#tour">New</a></li>
-          <li><a href="#contact">Cart</a></li>
-  
-          <li><a href="#">Login</a></li>
+              <li><a href="{% url 'home' %}">HOME</a></li>
+              <li><a href="{% url 'ranking' %}">Rank</a></li>
+              <li><a href={% url 'phonecase' %}>Case</a></li>
+              <li><a href={% url 'cart' %}>Cart</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
         </ul>
       </div>
     </div>
