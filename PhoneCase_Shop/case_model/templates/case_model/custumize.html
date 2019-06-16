@@ -14,8 +14,8 @@
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     
         <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="select-case-color.css">
-        <link type="text/css" rel="stylesheet" href="color-picker-sample.css">
+        <link type="text/css" rel="stylesheet" href="/static/select-case-color.css">
+        <link type="text/css" rel="stylesheet" href="/static/color-picker-sample.css">
         <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     
@@ -191,11 +191,10 @@ th, td{
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="main.html">HOME</a></li>
-              <li><a href="ranking.html">Rank</a></li>
-              <li><a href="new.html">New</a></li>
-              <li><a href="cart.html">Cart</a></li>
-              
+              <li><a href="{% url 'home' %}">HOME</a></li>
+              <li><a href="{% url 'ranking' %}">Rank</a></li>
+              <li><a href={% url 'phonecase' %}>Case</a></li>
+              <li><a href={% url 'cart' %}>Cart</a></li>
               <li><a href="#">Login</a></li>
             </ul>
           </div>
@@ -215,25 +214,25 @@ th, td{
               </h1>
             </th>
             <td>
-                <img class="drag" width="100" height="150" src="sticker/bear.png" >
+                <img class="drag" width="100" height="150" src="/static/sticker/bear.png" >
             </td>
             <td>
-                <img class="drag" width="100" height="150" src="sticker/toystory.png" >
+                <img class="drag" width="100" height="150" src="/static/sticker/toystory.png" >
             </td>
             <td>
-                <img class="drag" width="100" height="150" src="parts/12.png">
+                <img class="drag" width="100" height="150" src="/static/parts/12.png">
             </td>
           </tr>
           <tr>
             
               <td>
-                  <img class="drag" width="100" height="150" src="sticker/character/2.png">
+                  <img class="drag" width="100" height="150" src="/static/sticker/character/2.png">
               </td>
               <td>    
-                  <img class="drag" width="100" height="150" src="marvel.png">
+                  <img class="drag" width="100" height="150" src="/static/marvel.png">
               </td>
               <td>    
-                  <img class="drag" width="100" height="150" src="sticker/simple/2.png">
+                  <img class="drag" width="100" height="150" src="/static/sticker/simple/2.png">
               </td>
           </tr>
           <tr>
@@ -270,16 +269,16 @@ th, td{
           
           <th scope="row"rowspan="2" >그립<br><h1 class="glyphicon glyphicon-pawn" aria-hidden="true"></h1></th>
           <td>
-            <img class="drag" width="100" height="150" src="griptok/1.png">
+            <img class="drag" width="100" height="150" src="/static/griptok/1.png">
         </td>
-          <td><img class="drag" width="100" height="150" src="griptok/2.png"></td>
-          <td><img class="drag" width="100" height="150" src="griptok/3.png"></td>
+          <td><img class="drag" width="100" height="150" src="/static/griptok/2.png"></td>
+          <td><img class="drag" width="100" height="150" src="/static/griptok/3.png"></td>
           </tr>
           <tr>
           
-            <td><img class="drag" width="100" height="150" src="griptok/4.png"></td>
-            <td><img class="drag" width="100" height="150" src="griptok/5.png"></td>
-            <td><img class="drag" width="100" height="150" src="griptok/6.png"></td>
+            <td><img class="drag" width="100" height="150" src="/static/griptok/4.png"></td>
+            <td><img class="drag" width="100" height="150" src="/static/griptok/5.png"></td>
+            <td><img class="drag" width="100" height="150" src="/static/griptok/6.png"></td>
           </tr>
           
         </tbody>
@@ -314,19 +313,19 @@ th, td{
             
             switch (obj) {
                 case 'note9':
-                    document.getElementById("result").innerHTML = "<img src='Galaxy-Note-9/2.png' id='note9'>";
+                    document.getElementById("result").innerHTML = "<img src='/static/Galaxy-Note-9/2.png' id='note9'>";
                      break;
                 case 's10+': 
-                    document.getElementById("result").innerHTML = "<img src='Galaxy-S10+/2.png' id='s10+'>";
+                    document.getElementById("result").innerHTML = "<img src='/static/Galaxy-S10+/2.png' id='s10+'>";
                      break;
                 case '8+': 
-                    document.getElementById("result").innerHTML = "<img src='iPhone-8+/2.png' id='8+'>";
+                    document.getElementById("result").innerHTML = "<img src='/static/iPhone-8+/2.png' id='8+'>";
                      break;
                 case 'xs':
-                    document.getElementById("result").innerHTML = "<img src='iPhone-XS/2.png' id='xs'>";
+                    document.getElementById("result").innerHTML = "<img src='/static/iPhone-XS/2.png' id='xs'>";
                      break;
                 case 'v50': 
-                    document.getElementById("result").innerHTML = "<img src='LG-V50/2.png' id='v50'>";
+                    document.getElementById("result").innerHTML = "<img src='/static/LG-V50/2.png' id='v50'>";
                      break;
                 default: 
                     document.getElementById("result").innerHTML = ""; 
@@ -346,22 +345,22 @@ th, td{
             // x는 색상
             var type=document.getElementById("select-model").value;
             if(type=='note9'){
-                document.getElementById("note9").src = "Galaxy-Note-9/" + x + ".png";
+                document.getElementById("note9").src = "/static/Galaxy-Note-9/" + x + ".png";
             }
             else if(type=='s10+'){
-                document.getElementById("s10+").src = "Galaxy-S10+/" + x + ".png";
+                document.getElementById("s10+").src = "/static/Galaxy-S10+/" + x + ".png";
 
             }
             else if(type=='8+'){
-                document.getElementById("8+").src = "iPhone-8+/" + x + ".png";
+                document.getElementById("8+").src = "/static/iPhone-8+/" + x + ".png";
 
             }
             else if(type=='xs'){
-                document.getElementById("xs").src = "iPhone-XS/" + x + ".png";
+                document.getElementById("xs").src = "/static/iPhone-XS/" + x + ".png";
 
             }
             else if(type=='v50'){
-                document.getElementById("v50").src = "LG-V50/" + x + ".png";
+                document.getElementById("v50").src = "/static/LG-V50/" + x + ".png";
 
             }
         }

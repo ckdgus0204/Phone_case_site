@@ -3,6 +3,15 @@
             margin: 0;
             min-width: 700px;
         }
+        button a{
+            border:1px solid #ffc0cb;
+        }
+        button a:active{
+            border:1px solid #ffc0cb;
+        }
+        button a:visited{
+            border:1px solid #ffc0cb;
+        }
         #header {
             height: 300px;
             background-color:cadetblue;
@@ -12,14 +21,19 @@
             background-color: #151113;
         }
         .goods_container {
-            padding: 30px 30px 40px 30px;
+            padding: 100px 30px 40px 30px;
             border-bottom: 1px red solid;
+        }
+        .goods_container1{
+            padding: 100px 30px 40px 30px;
+           
         }
         .container-header {
             display: flex;
             align-items: center;
             height: 36px;
             margin-bottom: 30px;
+            
         }
         .container-header h2 {
             margin-right: auto;
@@ -28,11 +42,24 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            background-color:white;
         }
         .title {
             margin: 0px 0px 8px 15px;
-            font-weight: bold;
+           
             text-align: center;
+            font-size:15pt;
+        }
+        .title2{
+            font-size:10pt;
+        }
+        .icon{
+            width:20px;
+            height:20px;
+            background-color:#ffc0cb;
+        }
+        button{
+            background-color:#ffc0cb;
         }
         .case_sample{
             width: 270px;
@@ -47,19 +74,21 @@
         .best_icon{
             width: 50px;
             display:inline-block;
+            background-color:#ffc0cb;
         }
         .case_sample_best {
             width: 300px;
-            background-color:whitesmoke;
+            background-color:#ffc0cb;
             margin: 10px;
             padding: 10px 0px 10px 0px;
             text-align: center;
         }
         .case_sample_new {
             width: 300px;
-            background-color:whitesmoke;
+            background-color:#ffc0cb;
             margin: 10px;
             padding-bottom: 10px;
+            text-align: center;
         }
         #tags-container {
             padding: 30px 30px 40px 30px;

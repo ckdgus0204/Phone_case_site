@@ -8,3 +8,12 @@ def home(request):
 
 def custumize(request):
     return render(request,'case_model/custumize.html')
+
+def ranking(request):
+    return render(request,'case_model/ranking.html')
+
+def cart(request):
+    return render(request,'case_model/cart.html')
+
+def phonecase(request):
+    return render(request,'case_model/phonecase.html')

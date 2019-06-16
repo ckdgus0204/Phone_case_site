@@ -4,29 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-  <title>Phonecase</title>
+    <title>Phonecase</title>
     <style>
-        #Foot {
-    margin-top:30px;
-    color:white;
-    background-color: gray;
-    padding:20px;
-}
-#Foot a{
-    text-decoration: none;
-    text-decoration-color: rgb(245, 243, 243);
-    
-}
     header{
         background-color:#f08080;
         font-size:20pt;
@@ -107,51 +91,13 @@
         width: 30px;
         height: 30px;
     }
-    
-  .navbar {
-    font-family: Montserrat, monospace;
-    margin-bottom: 0;
-    background-color: #2d2d30;
-    border: 0;
-    font-size: 21px !important;
-    letter-spacing: 4px;
-    opacity: 0.9;
-  }
-  .navbar li a, .navbar .navbar-brand { 
-    color: #d5d5d5 !important;
-  }
-  .navbar-nav li a:hover {
-    color: #fff !important;
-  }
-  .navbar-nav li.active a {
-    color: #fff !important;
-    background-color: #29292c !important;
-  }
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
-  }
-  .open .dropdown-toggle {
-    color: #fff;
-    background-color: #555 !important;
-  }
-  .dropdown-menu li a {
-    color: #000 !important;
-  }
-  .dropdown-menu li a:hover {
-    background-color: red !important;
-  }
-  footer {
-    background-color: #2d2d30;
-    color: #f5f5f5;
-    padding: 32px;
-  }
-  footer a {
-    color: #f5f5f5;
-  }
-  footer a:hover {
-    color: #777;
-    text-decoration: none;
-  }  
+    footer{
+        background-color:black;
+        text-align:center;
+        color:white;
+        margin-top:50px;
+        padding:20px;
+    }
 </style>
 <script>
 var img_idx = -1; // for localStorage index
@@ -171,11 +117,13 @@ function Jelly(name,dollar,num,count,check,img){	//Generators who have a name, p
 			this.mouseUp=function(em){		
 				if(this.count==1){	
                     var flag=confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-					document.getElementsByClassName("best1")[this.num].src="cart1.png";
+					document.getElementsByClassName("best1")[this.num].src="/static/PhoneCase/cart1.png";
 					this.check=true;
 					this.count=2;
-                    if(flag)
-                        location.href="cart.html";
+                    if(flag){
+                        func();
+                        //location.href="cart.html";
+                    }
 				}
 				else if(this.count==2)		//Selecting again cancels the selection and changes the image to the original image.
 				{
@@ -205,12 +153,14 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
     this.mouseUp=function(em){		
         if(this.count==1){	
             var flag=confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-            document.getElementsByClassName("best2")[this.num].src="cart1.png";
+            document.getElementsByClassName("best2")[this.num].src="/static/PhoneCase/cart1.png";
             img_idx = this.num; // for localStorage (global variable)
             this.check=true;
             this.count=2;
-            if(flag)
-                location.href="cart.html";
+            if(flag){
+                        func();
+                        //location.href="cart.html";
+                    }
         }
         else if(this.count==2)		//Selecting again cancels the selection and changes the image to the original image.
         {
@@ -240,12 +190,13 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
             this.mouseUp=function(em){		
                 if(this.count==1){	
                     var flag=confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-                    document.getElementsByClassName("best3")[this.num].src="cart1.png";
+                    document.getElementsByClassName("best3")[this.num].src="/static/PhoneCase/cart1.png";
                     this.check=true;
                     this.count=2;
-                    if(flag)
-                        
-                        location.href="cart.html";
+                    if(flag){
+                        func();
+                        //location.href="cart.html";
+                    }
                     
                 }
                 else if(this.count==2)		//Selecting again cancels the selection and changes the image to the original image.
@@ -332,9 +283,10 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
                         //localStorage.setItem("img_src",arr); 
                         localStorage.setItem("name", JSON.stringify(arr));
                         localStorage.setItem("price",JSON.stringify(sum));
-                        //localStorage.setItem("image",JSON.stringify(img));
+                        localStorage.setItem("image",JSON.stringify(imgen));
+                        localStorage.setItem("total",number);
                         alert(arr);
-                        location.href="cart.html";
+                        location.href="{% url 'cart'%}";
                 }
                 else		//Alert window if not selected
                     alert("장바구니에 든것이 없어요!");
@@ -342,32 +294,6 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
         </script>
 </head>
 <body>
-    
-    <!-- navbar start -->
-<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>                        
-            </button>
-            <a class="navbar-brand" href="#myPage">Nick Fury's caseshop</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">HOME</a></li>
-              <li><a href="ranking.html">Rank</a></li>
-              <li><a href="/PhoneCase/Phonecase.html">PhoneCase</a></li>
-              <li><a href="">Cart</a></li>
-              
-              <li><a href="#">Login</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- navbar end -->
-      
     <header>
         <h1 style="margin-left:50px;">폰케이스</h1>
         <h5><ul>
@@ -401,8 +327,8 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
                                              
                                              for(var t=0;t<16;t++)
                                              {
-                                                 hardcase[t]="slimhard/case"+(t+1)+".jpg";	
-                                                 cart1[t]="cart.png";
+                                                 hardcase[t]="/static/PhoneCase/slimhard/case"+(t+1)+".jpg";	
+                                                 cart1[t]="/static/PhoneCase/cart.png";
                                              }
                                              for(var k=0;k<16;k++)
                                              {
@@ -443,8 +369,8 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
                                              
                                              for(var t=0;t<16;t++)
                                              {
-                                                 jellycase[t]="jellycase/case"+(t+1)+".jpg";	
-                                                 cart[t]="cart.png";
+                                                 jellycase[t]="/static/PhoneCase/jellycase/case"+(t+1)+".jpg";	
+                                                 cart[t]="/static/PhoneCase/cart.png";
                                              }
                                              for(var k=0;k<16;k++)
                                              {
@@ -486,8 +412,8 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
                                              
                                              for(var t=0;t<16;t++)
                                              {
-                                                 buffercase[t]="buffercase/case"+(t+1)+".jpg";	
-                                                 cart2[t]="cart.png";
+                                                 buffercase[t]="/static/PhoneCase/buffercase/case"+(t+1)+".jpg";	
+                                                 cart2[t]="/static/PhoneCase/cart.png";
                                              }
                                              for(var k=0;k<16;k++)
                                              {
@@ -517,29 +443,9 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
                              </table>	
                     </div>
                   </div>
-                  <div id="Foot" >
-                        <div class="inner_footer">
-                            <h2 class="screen_out">서비스 이용정보</h2>
-                            <div class="info_service">
-                                <a href="#" class="link_service">개인정보처리방침</a>
-                                <a href="#" class="link_service link_service2">이용약관</a>
-                                <a href="#" target="_blank" class="link_service link_service2">제휴문의</a>
-                                </div>
-                            <small class="info_copy">
-                                <span class="txt_copy">사업자등록번호 : 123-45-67890</span>
-                                <br>
-                                <span class="txt_copy">대표이사 : Ji Young Oh</span>
-                                <br>
-                                <span class="txt_copy">주소 : 충청북도 청주시 충대로1 충북대학교 S4-1</span>
-                                <br>
-                                <span class="txt_copy">고객센터 : 010-6364-7136 / 평일 10시 ~ 18시</span>
-                                <br>
-                                
-                                <br>
-                                <span class="txt_corp">Copyright © Nick Fury</span>
-                            </small>
-                        </div>
-                    </div>
+                  <footer>
+                    <p>@copyright by nickfuri</p>
+                  </footer>
                   <script>
                   $(".best1").data("name","dollar");
                   </script>
