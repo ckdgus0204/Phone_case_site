@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Nick fury's Case Shop</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-  <!-- Load c3.css -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.9/c3.min.css" rel="stylesheet" type="text/css">
-
-  <!-- Load d3.js and c3.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.9/c3.min.js"></script>
-
+  <head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>Nick fury's Case Shop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+    <!-- include Cycle plugin -->
+    <script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+  
+  
+    <!-- Load c3.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.9/c3.min.css" rel="stylesheet" type="text/css">
+  
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.9/c3.min.js"></script>
+  
   <!--Load css-->
   <link type="text/css" rel="stylesheet" href="/static/main.css">
 
-  <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!-- slide 4 each part -->
+    <!-- when you click it it changes -->
   <script>
-    $( document ).ready( function() {
-      var jbOffset = $( '.navbar' ).offset();
-      $( window ).scroll( function() {
-        if ( $( document ).scrollTop() > jbOffset.top ) {
-          $( '.navbar' ).addClass( 'mySlide' );
-        }
-        else {
-          $( '.navbar' ).removeClass( 'mySlide' );
-        }
+    $(document).ready(function () {
+      $('.slideshow1').cycle({
+        fx: 'fade',
+        speed: 300,
+        timeout: 3000,
+        next: '.slideshow1',
+        pause: 1
       });
-    } );
+    });
+    $(document).ready(function () {
+      $('.slideshow2').cycle({
+        fx: 'fade',
+        speed: 300,
+        timeout: 3000,
+        next: '.slideshow2',
+        pause: 1
+      });
+    });
+    $(document).ready(function () {
+      $('.slideshow3').cycle({
+        fx: 'fade',
+        speed: 300,
+        timeout: 3000,
+        next: '.slideshow3',
+        pause: 1
+      });
+    });
+    $(document).ready(function () {
+      $('.slideshow4').cycle({
+        fx: 'fade',
+        speed: 300,
+        timeout: 3000,
+        next: '.slideshow4',
+        pause: 1
+      });
+    });
   </script>
+  
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
   <!-- image slide -->
   <div id="mySlide" class="carousel slide" data-ride="carousel">
@@ -59,7 +91,7 @@
           <p>We make new items.</p>
         </div>
       </div>
-
+      
       <div class="item">
         <img src="/static/main22.jpg" width="1200px" height="700px">
         <div class="carousel-caption">
@@ -114,11 +146,14 @@
   <script>
     $(function () {
       $(window).scroll(function () {  //스크롤하면 아래 코드 실행
-        var num = $(this).scrollTop();  // 스크롤값
-        if (num > 700) {  // 스크롤을 700이상 했을 때
+        var num = $(document).scrollTop();  // 스크롤값
+        
+        if (num > 630) {  // 스크롤을 n이상 했을 때
           $(".navbar").css("position", "fixed");
+          $(".navbar").css("top", "0px");
         } else {
           $(".navbar").css("position", "absolute");
+          $(".navbar").css("top", "630px");
         }
       });
     });
@@ -151,7 +186,70 @@
       </a>
     </li>
   </ul>
+  <section class="goods_container">
+    <div class="container-header">
+        <!-- <h2></h2>
+        <button type="button" onclick="location.href='링크'">more ></button> -->
+    </div>
+    <div class="container-main">
+        <div class="case_sample_best">
+            <img class="best_icon" src="/static/trophy.png">
+            <a href="">
+                <div class="slideshow1">
+                    <img class="case_sample" src="/static/best-sample/bear-main.jpg" />
+                    <img class="case_sample" src="/static/best-sample/bear1.jpg" />
+                    <img class="case_sample" src="/static/best-sample/bear2.jpg" />
+                    <img class="case_sample" src="/static/best-sample/bear3.jpg" />
+                    <img class="case_sample" src="/static/best-sample/bear4.jpg" />
+                </div>
+            <br><p class="title">줄무늬 곰인형 케이스</p>
+            </a>
+        </div>
 
+        <div class="case_sample_best">
+                <img class="best_icon" src="/static/trophy.png">
+            <a href="">
+                <div class="slideshow2">
+                    <img class="case_sample" src="/static/best-sample/honeybee-main.jpg" />
+                    <img class="case_sample" src="/static/best-sample/honeybee1.jpg" />
+                    <img class="case_sample" src="/static/best-sample/honeybee2.jpg" />
+                    <img class="case_sample" src="/static/best-sample/honeybee3.jpg" />
+                    <img class="case_sample" src="/static/best-sample/honeybee4.jpg" />
+                </div>
+            <br><p class="title">허니비 케이스</p>
+            </a>
+        </div>
+
+        <div class="case_sample_best">
+                <img class="best_icon" src="/static/trophy.png">
+            <a href="">
+                <div class="slideshow3">
+                    <img class="case_sample" src="/static/best-sample/wink-main.jpg" />
+                    <img class="case_sample" src="/static/best-sample/wink1.jpg" />
+                    <img class="case_sample" src="/static/best-sample/wink2.jpg" />
+                    <img class="case_sample" src="/static/best-sample/wink3.jpg" />
+                    <img class="case_sample" src="/static/best-sample/wink4.jpg" />
+                </div>
+            
+            <br><p class="title">윙크 하트 케이스</p>
+            </a>
+        </div>
+
+        <div class="case_sample_best">
+            <img class="best_icon" img src="/static/trophy.png">
+            <a href="">
+                <div class="slideshow4">
+                    <img class="case_sample" src="/static/best-sample/deer-main.jpg" />
+                    <img class="case_sample" src="/static/best-sample/deer1.jpg" />
+                    <img class="case_sample" src="/static/best-sample/deer2.jpg" />
+                    <img class="case_sample" src="/static/best-sample/deer3.jpg" />
+                    <img class="case_sample" src="/static/best-sample/deer4.jpg" />
+                </div>
+            <br><p class="title">꽃사슴 케이스</p>
+            </a>
+        </div>
+    </div>
+</section>
   
   <!-- print google api maps and information of us-->
   <div>
@@ -182,17 +280,17 @@
       }
     </script>
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAlOjojzJqN5CEy7iGWtTTiWgCMiPUhXI&callback=myMap"></script>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAlOjojzJqN5CEy7iGWtTTiWgCMiPUhXI&callback=myMap"></script>
 
     <div id="information">
-      <b style="font-size:23px">Nick Fury's Case Shop</b>
-      <p style="padding-left:10px">115, S4-1, 1, Chungdae-ro, Seowon-gu, Cheongju-si, Chungcheongbuk-do, Republic of Korea</p>
-      <b style="font-size:23px">Office</b>
-      <p style="padding-left:10px">Nest.Net Software <br> 김창현 ㅣ 오지영 ㅣ 윤송희 <br> T : 010.2287.5653</p>
-    </div>
+    <b style="font-size:23px">Nick Fury's Case Shop</b>
+    <p>115, S4-1, 1, Chungdae-ro, Seowon-gu, Cheongju-si, Chungcheongbuk-do, Republic of Korea</p>
+    <b style="font-size:23px">Office</b>
+    <p>Nest.Net Software <br> 김창현 ㅣ 오지영 ㅣ 윤송희 <br> T : 010.2287.5653</p>
     </div>
   </div>
+</div>
 
 
   <!-- print visitor chart -->

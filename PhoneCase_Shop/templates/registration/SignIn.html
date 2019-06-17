@@ -138,6 +138,7 @@ footer{
     </style>
 </head>
 <body>
+  {% block content %}
         <ul>
                 <li><a class="active" href="#home">Home</a></li>
                 <li><a href="#news">News</a></li>
@@ -145,33 +146,35 @@ footer{
                 <li><a href="#about">About</a></li>
                 <li><a href="#" style="float:right;margin-left:880px;">Login</a></li>
               </ul>
-              <form class="form-signin"style="margin-top:100px;width:500px;margin-left:380px;">
+              <form  method="POST" action="{%url 'signup'%}"class="form-signin"style="margin-top:100px;width:500px;margin-left:380px;">
+                {% csrf_token %}
                 <h4 style="text-align:center;">SIGN IN</h4><br/>
                     <div class="form-label-group">
-                      <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                      <input type="text" name="username"id="inputUserame" class="form-control" placeholder="Username" required autofocus>
                       <label for="inputUserame">Username</label>
                     </div>
       
                     <div class="form-label-group">
-                      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                      <input type="email" name="email"id="inputEmail" class="form-control" placeholder="Email address" required>
                       <label for="inputEmail">Email address</label>
                     </div>
         
                     <hr>
                    
                     <div class="form-label-group">
-                      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                      <input type="password" name="password1"id="inputPassword" class="form-control" placeholder="Password" required>
                       <label for="inputPassword">Password</label>
                     </div>
                     
                     <div class="form-label-group">
-                      <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                      <input type="password" name="password2"id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                       <label for="inputConfirmPassword">Confirm password</label>
                     </div>
                     <br/>
                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                     
                 </form>
+                {% endblock %}
                 <footer>
                         <p>@copyright by NickFuri</p>
                          <p>Team Avengers</p>

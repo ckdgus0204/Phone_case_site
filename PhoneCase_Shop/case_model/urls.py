@@ -8,4 +8,5 @@ urlpatterns=[
     path('ranking/',views.ranking, name="ranking"),
     path('cart/',views.cart, name="cart"),
     path('phonecase/',views.phonecase, name="phonecase"),
+    path('payment/',views.payment,name="payment"),
 ]

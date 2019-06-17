@@ -15,7 +15,7 @@
                 width: 80%;
                 color: gray;
                 background-color: #ffede7;
-                margin-left: 100px;
+                
             }
             body{
                 margin:auto;
@@ -66,11 +66,12 @@
 
 <body>
     <header>
-        <div style="margin:70px;display:inline-block;width:300px;">
+        <div style="margin:70px;display:inline-block;">
             <h1>장바구니</h1>
             <h7>Shopping Cart</h7>
         </div>
     </header>
+    <!-- share variables between pages by using local storage -->
     <script>
         var total = localStorage.getItem("total");
         var sum = 0;
@@ -101,11 +102,13 @@
         //     document.getElementById("target1").innerHTML = '<h2>총 결제금액:' + ttotal + '원';
         // } // end func1
         function func2(){
-            location.href="Phonecase.html";
+            location.href="{%url 'phonecase'%}";
         }
         function func3(){
-            location.href="결제.html";
+            location.href="{%url 'payment'%}";
         }
+
+        // calculate the total money to pay
         function func1() {
 
             var ttotal = 0;
@@ -154,6 +157,7 @@
     </div><br /><br />
     <hr />
     <br />
+    <!-- recommend products -->
     <h3 style="margin-left:200px;">추천상품</h3>
     <table>
             <th>
@@ -209,6 +213,8 @@
             </th>
         </div>
     </table>
+    
+    <!-- print footer -->
     <footer style="height:200px;">
         <p>@copyright by NickFuri</p>
         <p>Team Avengers</p>

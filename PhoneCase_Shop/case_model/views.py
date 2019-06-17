@@ -16,4 +16,7 @@ def cart(request):
     return render(request,'case_model/cart.html')
 
 def phonecase(request):
-    return render(request,'case_model/phonecase.html')
+    return render(request,'case_model/Phonecase.html')
+
+def payment(request):
+    return render(request,'case_model/payment.html')

@@ -1,219 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>Phonecase</title>
     <style>
-    header{
-        background-color:#f08080;
-        font-size:20pt;
-        padding-top:100px;
-        padding:100px 30px 0;
-        width:80%;
-        margin-left:135px;
-        height:300px;
-        color:white;
-    }
-    ul li{
-        padding:10px;
-        display:inline;
-    }
-    table{		
-			
-            margin:auto;
-            
-    }
-    td{
-        padding-left:20px;
-        padding-right:20px;
-        padding-top:10px;
-    }
-    img{
-        border-radius:8px;
-    }
-    .bord{			
-            border:1px solid white;
-            color:gray;
-    }
-    #center{	
-			font-weight:bold;
-			font-size:20pt;
-			padding-left:340px;
-	}
-    .changebg{		
-			background-color:white;
-	}
-	.buy{			
-		width:830px;
-		height:40px;
-		background-color:#81C147;
-		color:white;
-		border-color:green;
+        header {
+            background-color:black;
+            font-size: 20pt;
+            padding-top: 100px;
+            padding: 100px 30px 0;
+            width: 100%;
+            height: 300px;
+            color: white;
         }
-    .best{			/*image style in table*/
-			width:200px;
-			height:300px;
-			border-left:150px;
-    }
-    .besta{			/*image style in table*/
-			width:200px;
-			height:300px;
-			border-left:150px;
-    }
-    .bestb{			/*image style in table*/
-			width:200px;
-			height:300px;
-			border-left:150px;
-    }
-    .best1{
-        background-color:white;
-        border: none;
-        width: 30px;
-        height: 30px;
-    }
-    .best2{
-        background-color:white;
-        border: none;
-        width: 30px;
-        height: 30px;
 
-    }
-    .best3{
-        background-color:white;
-        border: none;
-        width: 30px;
-        height: 30px;
-    }
-    footer{
-        background-color:black;
-        text-align:center;
-        color:white;
-        margin-top:50px;
-        padding:20px;
-    }
-</style>
-<script>
-var img_idx = -1; // for localStorage index
-function Jelly(name,dollar,num,count,check,img){	//Generators who have a name, price, number, click count, 
-			//var img=new Image();							//and product selection status as parameters
-			this.name=name;
-			this.dollar=dollar;
-			this.num=num;
-			this.count=count;
-			this.check=check;
-            this.img=img;
-			this.mouseOver=function (em){		//Place the mouse over it and the border will turn red
-			}
-			this.mouseOut=function (em){		//Release the mouse and the border will turn black
-				
-			}
-			this.mouseUp=function(em){		
-				if(this.count==1){	
-                    var flag=confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-					document.getElementsByClassName("best1")[this.num].src="/static/PhoneCase/cart1.png";
-					this.check=true;
-					this.count=2;
-                    if(flag){
-                        func();
-                        //location.href="cart.html";
-                    }
-				}
-				else if(this.count==2)		//Selecting again cancels the selection and changes the image to the original image.
-				{
-					document.getElementsByClassName("best1")[this.num].src=cart[this.num];
-					this.check=false;
-					this.count=1;
-				}
-				
-			}
-			
-		}
-</script>
-<script>
-function Hard(name,dollar,num,count,check,img){	//Generators who have a name, price, number, click count, 
-    //var img=new Image();							//and product selection status as parameters
-    this.name=name;
-    this.dollar=dollar;
-    this.num=num;
-    this.count=count;
-    this.check=check;
-    this.img=img;
-    this.mouseOver=function (em){		//Place the mouse over it and the border will turn red
-    }
-    this.mouseOut=function (em){		//Release the mouse and the border will turn black
-        
-    }
-    this.mouseUp=function(em){		
-        if(this.count==1){	
-            var flag=confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-            document.getElementsByClassName("best2")[this.num].src="/static/PhoneCase/cart1.png";
-            img_idx = this.num; // for localStorage (global variable)
-            this.check=true;
-            this.count=2;
-            if(flag){
-                        func();
-                        //location.href="cart.html";
-                    }
+        ul li {
+            padding: 10px;
+            display: inline;
         }
-        else if(this.count==2)		//Selecting again cancels the selection and changes the image to the original image.
-        {
-            document.getElementsByClassName("best2")[this.num].src=cart1[this.num];
-            this.check=false;
-            this.count=1;
+
+        table {
+
+            margin: auto;
+
         }
-        
-    }
-    
-}
-</script>
-<script>
-        function Buffer(name,dollar,num,count,check,img){	//Generators who have a name, price, number, click count, 
-            var img=new Image();							//and product selection status as parameters
-            this.name=name;
-            this.dollar=dollar;
-            this.num=num;
-            this.count=count;
-            this.check=check;
-            this.img=img;
-            this.mouseOver=function (em){		//Place the mouse over it and the border will turn red
+
+        td {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+        }
+
+        img {
+            border-radius: 8px;
+        }
+
+        .bord {
+            border: 1px solid white;
+            color: gray;
+        }
+
+        #center {
+            font-weight: bold;
+            font-size: 20pt;
+            padding-left: 340px;
+        }
+
+        .changebg {
+            background-color: white;
+        }
+
+        .buy {
+            width: 830px;
+            height: 40px;
+            background-color: #81C147;
+            color: white;
+            border-color: green;
+        }
+
+        .best {
+            /*image style in table*/
+            width: 200px;
+            height: 300px;
+            border-left: 150px;
+        }
+
+        .besta {
+            /*image style in table*/
+            width: 200px;
+            height: 300px;
+            border-left: 150px;
+        }
+
+        .bestb {
+            /*image style in table*/
+            width: 200px;
+            height: 300px;
+            border-left: 150px;
+        }
+
+        .best1 {
+            background-color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+        }
+
+        .best2 {
+            background-color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .best3 {
+            background-color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+        }
+
+        footer {
+            background-color: black;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        #Foot {
+            margin-top: 30px;
+            color: white;
+            background-color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #Foot a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, .9);
+
+        }
+
+        #Foot span {
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            font-size: 0.80em;
+            color: rgba(255, 255, 255, .6);
+        }
+    </style>
+    <script>
+        var img_idx = -1; // for localStorage index
+        function Jelly(name, dollar, num, count, check, img) {	//Generators who have a name, price, number, click count, 
+            //var img=new Image();							//and product selection status as parameters
+            this.name = name;
+            this.dollar = dollar;
+            this.num = num;
+            this.count = count;
+            this.check = check;
+            this.img = img;
+            this.mouseOver = function (em) {		//Place the mouse over it and the border will turn red
             }
-            this.mouseOut=function (em){		//Release the mouse and the border will turn black
-                
+            this.mouseOut = function (em) {		//Release the mouse and the border will turn black
+
             }
-            this.mouseUp=function(em){		
-                if(this.count==1){	
-                    var flag=confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-                    document.getElementsByClassName("best3")[this.num].src="/static/PhoneCase/cart1.png";
-                    this.check=true;
-                    this.count=2;
-                    if(flag){
+            this.mouseUp = function (em) {
+                if (this.count == 1) {
+                    var flag = confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
+                    document.getElementsByClassName("best1")[this.num].src = "cart1.png";
+                    this.check = true;
+                    this.count = 2;
+                    if (flag) {
                         func();
                         //location.href="cart.html";
                     }
-                    
                 }
-                else if(this.count==2)		//Selecting again cancels the selection and changes the image to the original image.
+                else if (this.count == 2)		//Selecting again cancels the selection and changes the image to the original image.
                 {
-                    document.getElementsByClassName("best3")[this.num].src=cart2[this.num];
-                    this.check=false;
-                    this.count=1;
+                    document.getElementsByClassName("best1")[this.num].src = cart[this.num];
+                    this.check = false;
+                    this.count = 1;
                 }
-                
+
             }
-            
+
         }
-        function Item(imagen,name,sum){
-            var imgagen=new Image();
-            this.imagen=imagen;
-            this.name=name;
-            this.sum=sum;
+    </script>
+    <script>
+        function Hard(name, dollar, num, count, check, img) {	//Generators who have a name, price, number, click count, 
+            //var img=new Image();							//and product selection status as parameters
+            this.name = name;
+            this.dollar = dollar;
+            this.num = num;
+            this.count = count;
+            this.check = check;
+            this.img = img;
+            this.mouseOver = function (em) {		//Place the mouse over it and the border will turn red
+            }
+            this.mouseOut = function (em) {		//Release the mouse and the border will turn black
+
+            }
+            this.mouseUp = function (em) {
+                if (this.count == 1) {
+                    var flag = confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
+                    document.getElementsByClassName("best2")[this.num].src = "cart1.png";
+                    img_idx = this.num; // for localStorage (global variable)
+                    this.check = true;
+                    this.count = 2;
+                    if (flag) {
+                        func();
+                        //location.href="cart.html";
+                    }
+                }
+                else if (this.count == 2)		//Selecting again cancels the selection and changes the image to the original image.
+                {
+                    document.getElementsByClassName("best2")[this.num].src = cart1[this.num];
+                    this.check = false;
+                    this.count = 1;
+                }
+
+            }
+
+        }
+    </script>
+    <script>
+        function Buffer(name, dollar, num, count, check, img) {	//Generators who have a name, price, number, click count, 
+            var img = new Image();							//and product selection status as parameters
+            this.name = name;
+            this.dollar = dollar;
+            this.num = num;
+            this.count = count;
+            this.check = check;
+            this.img = img;
+            this.mouseOver = function (em) {		//Place the mouse over it and the border will turn red
+            }
+            this.mouseOut = function (em) {		//Release the mouse and the border will turn black
+
+            }
+            this.mouseUp = function (em) {
+                if (this.count == 1) {
+                    var flag = confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
+                    document.getElementsByClassName("best3")[this.num].src = "cart1.png";
+                    this.check = true;
+                    this.count = 2;
+                    if (flag) {
+                        func();
+                        //location.href="cart.html";
+                    }
+
+                }
+                else if (this.count == 2)		//Selecting again cancels the selection and changes the image to the original image.
+                {
+                    document.getElementsByClassName("best3")[this.num].src = cart2[this.num];
+                    this.check = false;
+                    this.count = 1;
+                }
+
+            }
+
+        }
+        function Item(imagen, name, sum) {
+            var imgagen = new Image();
+            this.imagen = imagen;
+            this.name = name;
+            this.sum = sum;
         }
         // var img = new Image(); 
         // img.src = 'mypicture.png'; 
@@ -225,229 +265,224 @@ function Hard(name,dollar,num,count,check,img){	//Generators who have a name, pr
         // var data = context.getImageData(x, y, img.width, img.height).data; 
         // localStorage.setItem('image', data); // save image data 
         // }; 
-        function func(){	//Save selected names and prices
-                var arr=new Array();
-                var sum=new Array();
-                var imgen=new Array();
-                var i;
-                var item=[];
-                var arz=new Array();
-                var ark=new Array();
-                var arp=new Array();
-                    
-                var n=0;
-                var number=0;
-                for(i=0;i<16;i++)
-                    {
-                            if(jelly[i].check)
-                            {
-                                arr[number]=(jelly[i].name+" ");
-                                sum[number]=jelly[i].dollar;
-                                imgen[number]=document.getElementsByClassName("best")[i].src;
-                                item.push(new Item(imgen[number],arr[number],sum[number]));
-                                number++;
-                            }
-                    }
-                    for( i=0;i<16;i++)
-                    {
-                            if(hard[i].check)
-                            {
-                                arr[number]=(hard[i].name+" ");
-                                sum[number]=hard[i].dollar;
-                                imgen[number]=document.getElementsByClassName("besta")[i].src;
-                                item.push(new Item(imgen[number],arr[number],sum[number]));
-                                number++;
-                            }
-                    }
-                    for(i=0;i<16;i++)
-                    {
-                            if(buffer[i].check)
-                            {
-                                arr[number]=(buffer[i].name+" ");
-                                sum[number]=buffer[i].dollar;
-                                imgen[number]=document.getElementsByClassName("bestb")[i].src;
-                                item.push(new Item(imgen[number],arr[number],sum[number]));
-                                number++;
-                            }
-                    }
+        function func() {	//Save selected names and prices
+            var arr = new Array();
+            var sum = new Array();
+            var imgen = new Array();
+            var i;
+            var item = [];
+            var arz = new Array();
+            var ark = new Array();
+            var arp = new Array();
 
-                if(sum!=null){
-                   
-                    for(var i=0;i<48;i++)
-                        if(arr[i]!=null){
-                            arz[n]=imgen[i];
-                            ark[n]=arr[i];  
-                            arp[n]=sum[i]; 
-                            n++; 
-                        } // end for
-                        //localStorage.setItem("img_src",arr); 
-                        localStorage.setItem("name", JSON.stringify(arr));
-                        localStorage.setItem("price",JSON.stringify(sum));
-                        localStorage.setItem("image",JSON.stringify(imgen));
-                        localStorage.setItem("total",number);
-                        alert(arr);
-                        location.href="{% url 'cart'%}";
+            var n = 0;
+            var number = 0;
+            for (i = 0; i < 16; i++) {
+                if (jelly[i].check) {
+                    arr[number] = (jelly[i].name + " ");
+                    sum[number] = jelly[i].dollar;
+                    imgen[number] = document.getElementsByClassName("best")[i].src;
+                    item.push(new Item(imgen[number], arr[number], sum[number]));
+                    number++;
                 }
-                else		//Alert window if not selected
-                    alert("장바구니에 든것이 없어요!");
             }
-        </script>
+            for (i = 0; i < 16; i++) {
+                if (hard[i].check) {
+                    arr[number] = (hard[i].name + " ");
+                    sum[number] = hard[i].dollar;
+                    imgen[number] = document.getElementsByClassName("besta")[i].src;
+                    item.push(new Item(imgen[number], arr[number], sum[number]));
+                    number++;
+                }
+            }
+            for (i = 0; i < 16; i++) {
+                if (buffer[i].check) {
+                    arr[number] = (buffer[i].name + " ");
+                    sum[number] = buffer[i].dollar;
+                    imgen[number] = document.getElementsByClassName("bestb")[i].src;
+                    item.push(new Item(imgen[number], arr[number], sum[number]));
+                    number++;
+                }
+            }
+
+            if (sum != null) {
+
+                for (var i = 0; i < 48; i++)
+                    if (arr[i] != null) {
+                        arz[n] = imgen[i];
+                        ark[n] = arr[i];
+                        arp[n] = sum[i];
+                        n++;
+                    } // end for
+                //localStorage.setItem("img_src",arr); 
+                localStorage.setItem("name", JSON.stringify(arr));
+                localStorage.setItem("price", JSON.stringify(sum));
+                localStorage.setItem("image", JSON.stringify(imgen));
+                localStorage.setItem("total", number);
+                alert(arr);
+                location.href = "cart.html";
+            }
+            else		//Alert window if not selected
+                alert("장바구니에 든것이 없어요!");
+        }
+    </script>
 </head>
+
 <body>
     <header>
-        <h1 style="margin-left:50px;">폰케이스</h1>
-        <h5><ul>
-        <li>#Phoncase</li> <li>#Pretty</li>  <li> #Colorful</li></ul></h5>
+        <h1 style="margin-left:200px;">Nick Fury's caseshop</h1>
+        <h5  style="margin-left:200px;">#Phoncase #Pretty #Colorful</h5>
     </header>
 
-            <ul  style="margin-left:135px;background-color:white;width:80%;"class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">SlimHardCase</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">JellyCase</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">BufferCase</a>
-                    </li>
-                    <li class="nav-item" style="margin-left:508px;">
-                        <button type="button" class="btn btn-outline-warning"style="float:right;"onClick="func();">장바구니</button>   
-                    </li>
-                  </ul>
-                  <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <table>     
-                                    <script>	
-                                             var hardcase=new Array();
-                                             var cart1=new Image();
-                                             var hard=[];				
-                                             var hardname=new Array("딸기우유 슬림케이스","바나나우유 슬림케이스","냐옹 슬림케이스","맛나는 아이스크림 슬림케이스","빨강머리 앤 슬림케이스","심플 파스텔 슬림케이스",
-                                             "우디 슬림케이스","데이트 슬림케이스","풍경명화 슬림케이스","인생네컷 슬림케이스","바바파리 슬림케이스","도야지 슬림케이스","동물 슬림케이스","짱구 슬림케이스","러브로고 슬림케이스","썸씽남녀 슬림케이스");
-                                             var money1=[13000,11000,15000,16000,14000,13000,12000,18500,19000,10000,13000,12000,17000,17000,19000,18000]; 
-                                             
-                                             for(var t=0;t<16;t++)
-                                             {
-                                                 hardcase[t]="/static/PhoneCase/slimhard/case"+(t+1)+".jpg";	
-                                                 cart1[t]="/static/PhoneCase/cart.png";
-                                             }
-                                             for(var k=0;k<16;k++)
-                                             {
-                                                 hard.push(new Hard(hardname[k],money1[k],k,1,false,cart1[k]));
-                                             }
-                             var ij;
-                              for (var i = 0; i < 16; i++){
-                                 if(i%4==0){		
-                                 document.write('<tr style="line-height:30px;color:green;">');
-                                     for(var j=0;j<4;j++)
-                                     {
-                                     ij=j+i+1;
-                                     document.write('<td style="text-align:left;">'+ij+'</td>');
-                                         }
-                                         document.write('</tr>');
-                                     }
-                                      if(i%4 == 0){
-                                         document.write('<tr>');
-                                     }	 
-                                     document.write('<td class="bord" onmouseover="hard['+i+'].mouseOver(this);" onmouseup="hard['+i+'].mouseUp(this);" onmouseout="hard['+i+'].mouseOut(this);"><img class="besta" src="'
-                                     + hardcase[i] +'"</img><div class="changebg"style="padding-top:10px;">'+hardname[i]+'<br/></div><div style="float:left;">'+money1[i]+'원</div><img type="button" style="float:right;"class="best2" src="'+cart1[i]+'" /></td>');
-                                     if((i+1)%4 == 0){
-                                     document.write('</tr>');
-                                         }
-                                     }          
-                                 </script>
-                             </table>	
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <table>     
-                                    <script>	
-                                             var jellycase=new Array();
-                                             var cart=new Image();
-                                             var jelly=[];				
-                                             var jellyname=new Array("작은 외계인 젤리케이스","웨더 투데이 젤리케이스","공룡 투명 젤리케이스","스누피와 친구들 젤리케이스","뇸뇸 강아지 젤리케이스","그라데이션 젤리케이스",
-                                             "인생네컷 젤리케이스","시그널 외계인 젤리케이스","하트 뽁뽁이 젤리케이스","[생화]데이지 젤리케이스","[그림]데이지 젤리케이스","과일 젤리케이스","강아지와 일상을 젤리케이스","도날드 덕 젤리케이스","행복한 로이 젤리케이스","그남자 그여자 젤리케이스");
-                                             var money=[11000,21000,17000,17000,15000,13000,12000,9000,10000,20000,16000,12000,18000,17000,19000,16000]; 
-                                             
-                                             for(var t=0;t<16;t++)
-                                             {
-                                                 jellycase[t]="/static/PhoneCase/jellycase/case"+(t+1)+".jpg";	
-                                                 cart[t]="/static/PhoneCase/cart.png";
-                                             }
-                                             for(var k=0;k<16;k++)
-                                             {
-                                                 jelly.push(new Jelly(jellyname[k],money[k],k,1,false,cart[k]));
-                                             }
-                             var ij;
-                              for (var i = 0; i < 16; i++){
-                                 if(i%4==0){		
-                                 document.write('<tr style="line-height:30px;color:green;">');
-                                     for(var j=0;j<4;j++)
-                                     {
-                                     ij=j+i+1;
-                                     document.write('<td style="text-align:left;">'+ij+'</td>');
-                                         }
-                                         document.write('</tr>');
-                                     }
-                                      if(i%4 == 0){
-                                         document.write('<tr>');
-                                     }	 
-                                     document.write('<td class="bord" onmouseover="jelly['+i+'].mouseOver(this);" onmouseup="jelly['+i+'].mouseUp(this);" onmouseout="jelly['+i+'].mouseOut(this);"><img class="best" src="'
-                                     + jellycase[i] +'"</img><div class="changebg"style="padding-top:10px;">'+jellyname[i]+'<br/></div><div style="float:left;">'+money[i]+'원</div><img type="button" style="float:right;"class="best1" src="'+cart[i]+'" /></td>');
-                                     if((i+1)%4 == 0){
-                                     document.write('</tr>');
-                                         }
-                                     }          
-                                 </script>
-                             </table>   
-                        	
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                            <table >     
-                                    <script>	
-                                             var buffercase=new Array();
-                                             var cart2=new Image();
-                                             var buffer=[];				
-                                             var buffername=new Array("무지개와 달 범퍼케이스","사랑스러운 너 범퍼케이스","[거울]미러 범퍼케이스","CITY 범퍼케이스","프렌치불독 범퍼케이스","수국 범퍼케이스",
-                                             "봄꽃 범퍼케이스","[거울]나비 범퍼케이스","부다페스트호텔 범퍼케이스","스누피와친구들 범퍼케이스","스누피LOVE 범퍼케이스","체리카드 범퍼케이스","아임드리머 버퍼케이스","드림캐처 범퍼케이스","과일카드 범퍼케이스","JUNGKUN 범퍼케이스");
-                                             var money2=[15000,16000,15000,16000,17000,15000,14000,16500,17000,18000,16000,15000,17000,19000,19000,16000]; 
-                                             
-                                             for(var t=0;t<16;t++)
-                                             {
-                                                 buffercase[t]="/static/PhoneCase/buffercase/case"+(t+1)+".jpg";	
-                                                 cart2[t]="/static/PhoneCase/cart.png";
-                                             }
-                                             for(var k=0;k<16;k++)
-                                             {
-                                                 buffer.push(new Buffer(buffername[k],money2[k],k,1,false,cart2[k]));
-                                             }
-                             var ij;
-                              for (var i = 0; i < 16; i++){
-                                 if(i%4==0){		
-                                 document.write('<tr style="line-height:30px;color:green;">');
-                                     for(var j=0;j<4;j++)
-                                     {
-                                     ij=j+i+1;
-                                     document.write('<td style="text-align:left;">'+ij+'</td>');
-                                         }
-                                         document.write('</tr>');
-                                     }
-                                      if(i%4 == 0){
-                                         document.write('<tr>');
-                                     }	 
-                                     document.write('<td class="bord" onmouseover="buffer['+i+'].mouseOver(this);" onmouseup="buffer['+i+'].mouseUp(this);" onmouseout="buffer['+i+'].mouseOut(this);"><img class="bestb" src="'
-                                     + buffercase[i] +'"</img><div class="changebg"style="padding-top:10px;">'+buffername[i]+'<br/></div><div style="float:left;">'+money2[i]+'원</div><img type="button" style="float:right;"class="best3" src="'+cart2[i]+'" /></td>');
-                                     if((i+1)%4 == 0){
-                                     document.write('</tr>');
-                                         }
-                                     }          
-                                 </script>
-                             </table>	
-                    </div>
-                  </div>
-                  <footer>
-                    <p>@copyright by nickfuri</p>
-                  </footer>
-                  <script>
-                  $(".best1").data("name","dollar");
-                  </script>
+    <ul style="margin-left:135px;background-color:white;width:80%;" class="nav nav-pills mb-3" id="pills-tab"
+        role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                aria-controls="pills-home" aria-selected="true">SlimHardCase</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                aria-controls="pills-profile" aria-selected="false">JellyCase</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                aria-controls="pills-contact" aria-selected="false">BufferCase</a>
+        </li>
+        <li class="nav-item" style="margin-left:700px;">
+            <button type="button" class="btn btn-outline-warning" style="float:right;" onClick="func();">장바구니</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <table>
+                <script>
+                    var hardcase = new Array();
+                    var cart1 = new Image();
+                    var hard = [];
+                    var hardname = new Array("딸기우유 슬림케이스", "바나나우유 슬림케이스", "냐옹 슬림케이스", "맛나는 아이스크림 슬림케이스", "빨강머리 앤 슬림케이스", "심플 파스텔 슬림케이스",
+                        "우디 슬림케이스", "데이트 슬림케이스", "풍경명화 슬림케이스", "인생네컷 슬림케이스", "바바파리 슬림케이스", "도야지 슬림케이스", "동물 슬림케이스", "짱구 슬림케이스", "러브로고 슬림케이스", "썸씽남녀 슬림케이스");
+                    var money1 = [13000, 11000, 15000, 16000, 14000, 13000, 12000, 18500, 19000, 10000, 13000, 12000, 17000, 17000, 19000, 18000];
+
+                    for (var t = 0; t < 16; t++) {
+                        hardcase[t] = "/static/Phonecase/slimhard/case" + (t + 1) + ".jpg";
+                        cart1[t] = "/static/Phonecase/cart.png";
+                    }
+                    for (var k = 0; k < 16; k++) {
+                        hard.push(new Hard(hardname[k], money1[k], k, 1, false, cart1[k]));
+                    }
+                    var ij;
+                    for (var i = 0; i < 16; i++) {
+                        if (i % 4 == 0) {
+                            document.write('<tr style="line-height:30px;color:green;">');
+                            for (var j = 0; j < 4; j++) {
+                                ij = j + i + 1;
+                                document.write('<td style="text-align:left;">' + ij + '</td>');
+                            }
+                            document.write('</tr>');
+                        }
+                        if (i % 4 == 0) {
+                            document.write('<tr>');
+                        }
+                        document.write('<td class="bord" onmouseover="hard[' + i + '].mouseOver(this);" onmouseup="hard[' + i + '].mouseUp(this);" onmouseout="hard[' + i + '].mouseOut(this);"><img class="besta" src="'
+                            + hardcase[i] + '"</img><div class="changebg"style="padding-top:10px;">' + hardname[i] + '<br/></div><div style="float:left;">' + money1[i] + '원</div><img type="button" style="float:right;"class="best2" src="' + cart1[i] + '" /></td>');
+                        if ((i + 1) % 4 == 0) {
+                            document.write('</tr>');
+                        }
+                    }          
+                </script>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <table>
+                <script>
+                    var jellycase = new Array();
+                    var cart = new Image();
+                    var jelly = [];
+                    var jellyname = new Array("작은 외계인 젤리케이스", "웨더 투데이 젤리케이스", "공룡 투명 젤리케이스", "스누피와 친구들 젤리케이스", "뇸뇸 강아지 젤리케이스", "그라데이션 젤리케이스",
+                        "인생네컷 젤리케이스", "시그널 외계인 젤리케이스", "하트 뽁뽁이 젤리케이스", "[생화]데이지 젤리케이스", "[그림]데이지 젤리케이스", "과일 젤리케이스", "강아지와 일상을 젤리케이스", "도날드 덕 젤리케이스", "행복한 로이 젤리케이스", "그남자 그여자 젤리케이스");
+                    var money = [11000, 21000, 17000, 17000, 15000, 13000, 12000, 9000, 10000, 20000, 16000, 12000, 18000, 17000, 19000, 16000];
+
+                    for (var t = 0; t < 16; t++) {
+                        jellycase[t] = "/static/Phonecase/jellycase/case" + (t + 1) + ".jpg";
+                        cart[t] = "/static/Phonecase/cart.png";
+                    }
+                    for (var k = 0; k < 16; k++) {
+                        jelly.push(new Jelly(jellyname[k], money[k], k, 1, false, cart[k]));
+                    }
+                    var ij;
+                    for (var i = 0; i < 16; i++) {
+                        if (i % 4 == 0) {
+                            document.write('<tr style="line-height:30px;color:green;">');
+                            for (var j = 0; j < 4; j++) {
+                                ij = j + i + 1;
+                                document.write('<td style="text-align:left;">' + ij + '</td>');
+                            }
+                            document.write('</tr>');
+                        }
+                        if (i % 4 == 0) {
+                            document.write('<tr>');
+                        }
+                        document.write('<td class="bord" onmouseover="jelly[' + i + '].mouseOver(this);" onmouseup="jelly[' + i + '].mouseUp(this);" onmouseout="jelly[' + i + '].mouseOut(this);"><img class="best" src="'
+                            + jellycase[i] + '"</img><div class="changebg"style="padding-top:10px;">' + jellyname[i] + '<br/></div><div style="float:left;">' + money[i] + '원</div><img type="button" style="float:right;"class="best1" src="' + cart[i] + '" /></td>');
+                        if ((i + 1) % 4 == 0) {
+                            document.write('</tr>');
+                        }
+                    }          
+                </script>
+            </table>
+
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <table>
+                <script>
+                    var buffercase = new Array();
+                    var cart2 = new Image();
+                    var buffer = [];
+                    var buffername = new Array("무지개와 달 범퍼케이스", "사랑스러운 너 범퍼케이스", "[거울]미러 범퍼케이스", "CITY 범퍼케이스", "프렌치불독 범퍼케이스", "수국 범퍼케이스",
+                        "봄꽃 범퍼케이스", "[거울]나비 범퍼케이스", "부다페스트호텔 범퍼케이스", "스누피와친구들 범퍼케이스", "스누피LOVE 범퍼케이스", "체리카드 범퍼케이스", "아임드리머 버퍼케이스", "드림캐처 범퍼케이스", "과일카드 범퍼케이스", "JUNGKUN 범퍼케이스");
+                    var money2 = [15000, 16000, 15000, 16000, 17000, 15000, 14000, 16500, 17000, 18000, 16000, 15000, 17000, 19000, 19000, 16000];
+
+                    for (var t = 0; t < 16; t++) {
+                        buffercase[t] = "/static/Phonecase/buffercase/case" + (t + 1) + ".jpg";
+                        cart2[t] = "/static/Phonecase/cart.png";
+                    }
+                    for (var k = 0; k < 16; k++) {
+                        buffer.push(new Buffer(buffername[k], money2[k], k, 1, false, cart2[k]));
+                    }
+                    var ij;
+                    for (var i = 0; i < 16; i++) {
+                        if (i % 4 == 0) {
+                            document.write('<tr style="line-height:30px;color:green;">');
+                            for (var j = 0; j < 4; j++) {
+                                ij = j + i + 1;
+                                document.write('<td style="text-align:left;">' + ij + '</td>');
+                            }
+                            document.write('</tr>');
+                        }
+                        if (i % 4 == 0) {
+                            document.write('<tr>');
+                        }
+                        document.write('<td class="bord" onmouseover="buffer[' + i + '].mouseOver(this);" onmouseup="buffer[' + i + '].mouseUp(this);" onmouseout="buffer[' + i + '].mouseOut(this);"><img class="bestb" src="'
+                            + buffercase[i] + '"</img><div class="changebg"style="padding-top:10px;">' + buffername[i] + '<br/></div><div style="float:left;">' + money2[i] + '원</div><img type="button" style="float:right;"class="best3" src="' + cart2[i] + '" /></td>');
+                        if ((i + 1) % 4 == 0) {
+                            document.write('</tr>');
+                        }
+                    }          
+                </script>
+            </table>
+        </div>
+    </div>
+
+    <div id="Foot">
+        <small>
+            <span>© NICK FURY'S CASE SHOP. ALL RIGHTS RESERVED. | DESIGNED BY <a href="#map">NF&F</a>.</span>
+        </small>
+    </div>
+
+
+    <script>
+        $(".best1").data("name", "dollar");
+    </script>
 </body>
+
 </html>

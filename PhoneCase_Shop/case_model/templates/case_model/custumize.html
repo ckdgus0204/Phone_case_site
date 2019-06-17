@@ -1,6 +1,6 @@
 <HTML>
     <HEAD>
-    <TITLE> 자바스크립트 </TITLE>
+    <TITLE> Nick fury's Case Shop </TITLE>
         <!-- bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -128,50 +128,44 @@ th, td{
     </style>
 
     <script type="text/javascript">
-    
-    var dragobject={
-    z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
-    initialize:function(){
-    document.onmousedown=this.drag
-    document.onmouseup=function(){this.dragapproved=0}
-    },
-    drag:function(e){
-    var evtobj=window.event? window.event : e
-    this.targetobj=window.event? event.srcElement : e.target
-    if (this.targetobj.className=="drag"){
-    this.dragapproved=1
-    if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
-    if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
-    this.offsetx=parseInt(this.targetobj.style.left)
-    this.offsety=parseInt(this.targetobj.style.top)
-    this.x=evtobj.clientX
-    this.y=evtobj.clientY
-    if (evtobj.preventDefault)
-    evtobj.preventDefault()
-    document.onmousemove=dragobject.moveit
-    }
-    },
-    moveit:function(e){
-    var evtobj=window.event? window.event : e
-    if (this.dragapproved==1){
-    this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
-    this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
-    return false
-    }
-    }
-    }
-    
-    dragobject.initialize()
-    $(document).ready(function() {
-    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-        e.preventDefault();
-        $(this).siblings('a.active').removeClass("active");
-        $(this).addClass("active");
-        var index = $(this).index();
-        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-        });
-    });
+      //drag functions
+      var dragobject={
+        z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
+        initialize:function(){
+        document.onmousedown=this.drag
+        document.onmouseup=function(){this.dragapproved=0}
+      },
+
+      
+      drag:function(e){
+        var evtobj=window.event? window.event : e
+        this.targetobj=window.event? event.srcElement : e.target
+        if (this.targetobj.className=="drag"){
+          this.dragapproved=1
+          if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
+          if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
+          this.offsetx=parseInt(this.targetobj.style.left)
+          this.offsety=parseInt(this.targetobj.style.top)
+          this.x=evtobj.clientX
+          this.y=evtobj.clientY
+        if (evtobj.preventDefault)
+          evtobj.preventDefault()
+          document.onmousemove=dragobject.moveit
+        }
+      },
+
+      moveit:function(e){
+        var evtobj=window.event? window.event : e
+          if (this.dragapproved==1){
+          this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
+          this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
+          return false
+          }
+        }
+      }
+      
+      dragobject.initialize()
+      
     </script>
 
     </HEAD>
@@ -187,7 +181,7 @@ th, td{
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="#myPage">Nick Fury's caseshop</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Nick Fury's caseshop</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -205,80 +199,103 @@ th, td{
     <!-- attach items -->
     
       <table class="table table-borderless "style="float:left; width:50%; border:solid black 1px;">
-            
+            <!-- characters -->
         <tbody>
           <tr>
-            <th scope="row"rowspan="2" >캐릭터<br>
+            <th scope="row"rowspan="3" >캐릭터<br>
               <h1 class="glyphicon glyphicon-plane" aria-hidden="true">
                 
               </h1>
             </th>
             <td>
-                <img class="drag" width="100" height="150" src="/static/sticker/bear.png" >
+                <img class="drag" width="70" height="110" src="/static/sticker/character/1.png" >
             </td>
             <td>
-                <img class="drag" width="100" height="150" src="/static/sticker/toystory.png" >
+                <img class="drag" width="70" height="110" src="/static/sticker/character/2.png" >
             </td>
             <td>
-                <img class="drag" width="100" height="150" src="/static/parts/12.png">
+                <img class="drag" width="70" height="110" src="/static/sticker/character/3.png">
             </td>
           </tr>
           <tr>
             
+            <td>
+                <img class="drag" width="70" height="110" src="/static/sticker/character/5.png">
+            </td>
+            <td>    
+                <img class="drag" width="70" height="110" src="/static/sticker/character/6.png">
+            </td>
+            <td>    
+                <img class="drag" width="70" height="110" src="/static/sticker/character/10.png">
+            </td>
+        </tr>
+          <tr>
+            
               <td>
-                  <img class="drag" width="100" height="150" src="/static/sticker/character/2.png">
+                  <img class="drag" width="70" height="110" src="/static/sticker/bear.png">
               </td>
               <td>    
-                  <img class="drag" width="100" height="150" src="/static/marvel.png">
+                  <img class="drag" width="70" height="110" src="/static/sticker/toystory.png">
               </td>
               <td>    
-                  <img class="drag" width="100" height="150" src="/static/sticker/simple/2.png">
+                  <img class="drag" width="70" height="110" src="/static/sticker/flower/2.png">
               </td>
           </tr>
+
           <tr>
           <th scope="row"rowspan="2" >레터링<br><h1 class="glyphicon glyphicon-font" aria-hidden="true"></h1></th>
+            <!-- lettering -->
           
           
-          
-            <td colspan="3">
+            <td colspan="4">
               <center>
-                  
-                  
+                <!-- print letter when you put a letter on it -->
                 <script>
                     var num=0;
                     var b=0;
+                    var arr=[];
                     for(var i=0;i<2;i++) {
                     document.write('<h3 class="drag" id="custumtext" name="text"></h3>');
-                    document.write('<input type="text" id="newtext" class="newtext1">');
-                    document.write('<button onclick="Changetext()"></button>');
+                    document.write('<input type="text" id="newtext"class="newtext1">');
+                    arr[i]=i;
+                    document.write('<button id="change'+i+'"onclick="Changetext()"value="'+i+'">추가</button>');
                     }
-                    
                     function Changetext(){
-                    var a=document.getElementsByClassName("newtext1")[num].value;
-                    document.getElementsByName("text")[num].innerHTML=a;
-                    num++;
-                    
+                    for(var i=0;i<2;i++){
+                    if(document.getElementById("change"+i).value==i){
+                    var a=document.getElementsByClassName("newtext1")[i].value;
+                    document.getElementsByName("text")[i].innerHTML=a;
+                    }
+                    }
                 }
                 </script>
-            </center>
+          </center>
             </td>
           <tr>
             <td></td><td></td><td></td>
           </tr>
           
+          <tr>
+            <!-- grip items -->
+          <th scope="row"rowspan="3" >그립<br><h1 class="glyphicon glyphicon-pawn" aria-hidden="true"></h1></th>
           
-          <th scope="row"rowspan="2" >그립<br><h1 class="glyphicon glyphicon-pawn" aria-hidden="true"></h1></th>
           <td>
-            <img class="drag" width="100" height="150" src="/static/griptok/1.png">
+            <img class="drag" width="70" height="110" src="/static/griptok/1.png">
         </td>
-          <td><img class="drag" width="100" height="150" src="/static/griptok/2.png"></td>
-          <td><img class="drag" width="100" height="150" src="/static/griptok/3.png"></td>
+          <td><img class="drag" width="70" height="110" src="/static/griptok/2.png"></td>
+          <td><img class="drag" width="70" height="110" src="/static/griptok/3.png"></td>
           </tr>
           <tr>
           
-            <td><img class="drag" width="100" height="150" src="/static/griptok/4.png"></td>
-            <td><img class="drag" width="100" height="150" src="/static/griptok/5.png"></td>
-            <td><img class="drag" width="100" height="150" src="/static/griptok/6.png"></td>
+            <td><img class="drag" width="70" height="110" src="/static/griptok/4.png"></td>
+            <td><img class="drag" width="70" height="110" src="/static/griptok/5.png"></td>
+            <td><img class="drag" width="70" height="110" src="/static/parts/4.png"></td>
+          </tr>
+          <tr>
+          
+            <td><img class="drag" width="70" height="110" src="/static/parts/3.png"></td>
+            <td><img class="drag" width="70" height="110" src="/static/parts/9.png"></td>
+            <td><img class="drag" width="70" height="110" src="/static/parts/10.png"></td>
           </tr>
           
         </tbody>
@@ -297,6 +314,29 @@ th, td{
             <option value="v50">LG V50</option>
         </select>
 
+    <!-- add to Cart -->
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="float:right">
+      <button type="button" class="btn btn-secondary" onclick="cart()">장바구니</button>
+      <button type="button" class="btn btn-secondary"onclick="order()">주문하기</button>
+      
+    </div>
+      <script>
+      function cart(){
+        var name=['너가 만든 케이스'];
+        var arrv=new Array(15000);
+        var price=new Array();
+        price[0]=15000;
+        var image=new Array('/static/customize_example.jpg');
+        localStorage.setItem("name", JSON.stringify(name));
+        localStorage.setItem("price",JSON.stringify(price));
+        localStorage.setItem("image",JSON.stringify(image));
+        localStorage.setItem("total",1);
+        location.href="{% url 'cart'%}";
+      }
+      function order(){
+
+      }
+      </script>
         <!-- 색깔 고르는 거 -->
     <div class="select-color">
         <div class="color-picker">
@@ -369,31 +409,32 @@ th, td{
     </div>
 
         
+            
     <!-- print Footer informations of us -->
     <footer>
-            <div class="inner_footer">
-                    <h2 class="screen_out">서비스 이용정보</h2>
-                    <div class="info_service">
-                        <a href="#" class="link_service">개인정보처리방침</a>
-                        <a href="#" class="link_service link_service2">이용약관</a>
-                        <a href="#" target="_blank" class="link_service link_service2">제휴문의</a>
-                        </div>
-                    <small class="info_copy">
-                        <span class="txt_copy">사업자등록번호 : 123-45-67890</span>
-                        <br>
-                        <span class="txt_copy">대표이사 : Ji Young Oh</span>
-                        <br>
-                        <span class="txt_copy">주소 : 충청북도 청주시 충대로1 충북대학교 S4-1</span>
-                        <br>
-                        <span class="txt_copy">고객센터 : 010-6364-7136 / 평일 10시 ~ 18시</span>
-                        <br>
-                        
-                        <br>
-                        <span class="txt_corp">Copyright © Nick Fury</span>
-                    </small>
-                </div>
-            </div>
-    </footer>
+      <div class="inner_footer">
+              <h2 class="screen_out">서비스 이용정보</h2>
+              <div class="info_service">
+                  <a href="#" class="link_service">개인정보처리방침</a>
+                  <a href="#" class="link_service link_service2">이용약관</a>
+                  <a href="#" target="_blank" class="link_service link_service2">제휴문의</a>
+                  </div>
+              <small class="info_copy">
+                  <span class="txt_copy">사업자등록번호 : 123-45-67890</span>
+                  <br>
+                  <span class="txt_copy">대표이사 : Ji Young Oh</span>
+                  <br>
+                  <span class="txt_copy">주소 : 충청북도 청주시 충대로1 충북대학교 S4-1</span>
+                  <br>
+                  <span class="txt_copy">고객센터 : 010-6364-7136 / 평일 10시 ~ 18시</span>
+                  <br>
+                  
+                  <br>
+                  <span class="txt_corp">Copyright © Nick Fury</span>
+              </small>
+          </div>
+      </div>
+</footer>
         
 
        

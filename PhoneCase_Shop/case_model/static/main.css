@@ -313,6 +313,13 @@
 
     #information b{
       color: white;
+      letter-spacing: 3px;
+    }
+
+    #information p{
+      color: white;
+      padding-left:10px;
+      letter-spacing: 1px;
     }
 
     #up-button{
@@ -336,5 +343,64 @@
     text-align: center;
     vertical-align: middle;
     font-weight: bold;
+}
+
+.goods_container {
+clear:both;
+  padding: 30px 30px 40px 30px;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin-bottom: 30px;
+}
+
+.container-header h2 {
+  margin-right: auto;
+}
+
+.container-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title {
+  margin: 0px 0px 8px 15px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.case_sample{
+  width: 270px;
+  height: 270px;
+  margin: 15px;
+}
+
+.case_sample_new img{
+  width: 270px;
+  height: 270px;
+  margin: 15px;
+}
+
+.best_icon{
+  width: 50px;
+  display:inline-block;
+}
+
+
+.case_sample_best {
+  width: 300px;
+  background-color:whitesmoke;
+  margin: 10px;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+
+.main_banner{
+  width:300px;
 }
     
