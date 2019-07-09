@@ -7,18 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="/static/Decorate.css">
-    <llink href="Phonecase.html">
+    <llink href="{% url 'phonecase' %}"></llink>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
+            
             header {
-                width: 80%;
-                color: gray;
-                background-color: #ffede7;
-                
+                width: 100%;
+                color: white;
+                background-color:black;
             }
             body{
                 margin:auto;
+                
             }
 
             .t1 {
@@ -37,6 +38,7 @@
             }
             img{
                 border-radius:8px;
+                height:300px;
             }
             .t2 {
                 /*Design settings for menus in the menu bar*/
@@ -61,26 +63,48 @@
                 text-decoration: none;
                 color:black;
             }
+            #Foot {
+            margin-top: 30px;
+            color: white;
+            background-color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #Foot a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, .9);
+
+        }
+
+        #Foot span {
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            font-size: 0.80em;
+            color: rgba(255, 255, 255, .6);
+        }
         </style>
 </head>
 
-<body>
-    <header>
-        <div style="margin:70px;display:inline-block;">
-            <h1>장바구니</h1>
-            <h7>Shopping Cart</h7>
-        </div>
-    </header>
+<body onload="func1();">
+        <header>
+                <div style="margin:70px;display:inline-block;">
+                    <h1>장바구니</h1>
+                    <h7>Shopping Cart</h7>
+                </div>
+            </header>
     <!-- share variables between pages by using local storage -->
     <script>
-        var total = localStorage.getItem("total");
+        var totalnum = JSON.parse(localStorage.getItem("totalnum"));
         var sum = 0;
+        var checkofbutton=true;
         var arr = JSON.parse(localStorage.getItem("name"));
         var arr1 = JSON.parse(localStorage.getItem("price"));
         var arr2 = JSON.parse(localStorage.getItem("image"));
         var c = new Array();
         var s;
         var n = 0;
+        var numOfcase=0;
         var firstsum = 0;
         // function func1() {
         //     for (var t = 0; t < n; t++) {
@@ -110,48 +134,71 @@
 
         // calculate the total money to pay
         function func1() {
-
+            checkofbutton=false;
             var ttotal = 0;
-
+            var priceOfdelivery=0;
             for(var i=0; i<n; i++) {
                 var numOfcase = document.getElementById("num"+i).value;
                 var total_price = numOfcase * arr1[i];
                 document.getElementById("money"+i).innerHTML = "금액:" + total_price + "원";
                 ttotal += total_price;
+                priceOfdelivery = 2500;
             }
-
-            var priceOfdelivery = 2500;
+            totalforpayment=ttotal;
+            
             document.getElementById("target").innerHTML = '<h2>장바구니 합계:'+ttotal+'원';
             ttotal += priceOfdelivery;
             
-            document.getElementById("deliver").innerHTML = '<h2>배송비:2500원</h2>';
+            document.getElementById("deliver").innerHTML = '<h2>배송비:'+priceOfdelivery+'</h2>';
             document.getElementById("target1").innerHTML = '<h2>총 결제금액:' + ttotal + '원';
-      
+            localStorage.setItem("total", ttotal);
+            localStorage.setItem("totalforpayment",totalforpayment);
+            localStorage.setItem("priceofdelivery",priceOfdelivery);
       
             
         }
 
-        document.write('<hr/><h4 style="margin-left:95px;">총' + total + '개의 상품이 조회되었습니다</h4><br/>');
+        document.write('<hr/><h4 style="margin-left:95px;">총' +parseInt(totalnum)+ '개의 상품이 조회되었습니다</h4><br/>');
         for (var i = 0; i < 48; i++) {
             if (arr[i] != null) {
-                document.write('<nav class="navleft" style="margin-left:80px;margin-right:80px;"><img src="' + arr2[i] + '"></img></nav>');
-                document.write('<nav class="navright" style="height:300px;margin-top:40px;margin-left:50px;">')
+                document.write('<nav class="navleft" style="margin-left:130px;margin-right:80px;"><img src="' + arr2[i] + '"></img></nav>');
+                document.write('<nav class="navright" style="height:300px;margin-top:30px;margin-left:50px;width:50%">')
                 document.write('<p>' + arr[i] + '</p>');
-                document.write('<p id="money'+i+'" class="money">금액:' + arr1[i] + '</p>');
+                document.write('<p id="money'+i+'" class="money'+i+'">금액:' + arr1[i] + '</p>');
                 sum += parseInt(arr1[i]);
                 n++;
-                document.write('<p>수량<input type="number" id="num'+i+'" onclick="func1();" min="1" max="8" class="form-control" value="1"style="text-align:center;width:200px;"/></p></nav><hr/>')
+                document.write('<p style="display:inline;">옵션(색)<span class="form-group col-md-4"><select id="inputState" class="form-control"style="width:150px;"name="color"><option value="Red" class="form-control">Red</option><option value="Yellow">Yellow</option><option value="Blue">Blue</option><option value="Pink">Pink</option><option value="Black">Black</option><option value="Transparency">Transparency</option></select></span></p>');
+                document.write('<p>수량<input type="number" id="num'+i+'" onclick="func1();" min="1" max="8" class="form-control" value="1"style="text-align:center;width:150px;"/></p></nav><hr/>');
             }
         }
+        // if(checkofbutton==true){
+        //     var ttotal = 0;
+        //     for(var i=0; i<n; i++) {
+        //         numOfcase=numOfcase+(i+1);
+        //         var total_price = numOfcase * arr1[i];
+        //         document.getElementsByClassName('money'+i).innerHTML = "금액:" + total_price + "원";
+        //         ttotal += total_price;
+        //     }
+        //     totalforpayment=ttotal;
+        //     var priceOfdelivery = 2500;
+        //     var targetofproduct=document.getElementsByClassName('target');
+        //     targetofproduct.innerHTML = '장바구니 합계:'+ttotal+'원';
+        //     ttotal += priceOfdelivery;
+        //     document.getElementsByClassName('line').innerHTML = '배송비:2500원';
+        //     document.getElementsByClassName('target1').innerHTML = '총 결제금액:' + ttotal + '원';
+        //     localStorage.setItem("total", ttotal);
+        //     localStorage.setItem("totalforpayment",totalforpayment);
+        //     localStorage.setItem("priceofdelivery",priceOfdelivery);
+        // }
             //document.write('<img src='+output[i]+'>');
     </script>
     <div style="margin-left:200px;margin-top:50px;">
-        <h2 id="target">장바구니 합계:</h2><br /><br /><br />
-        <div class="line" style="margin-right:350px;" id="deliver">
+        <h2 id="target" class="target">장바구니 합계:</h2><br /><br /><br />
+        <div class="line" style="margin-right:150px;" id="deliver">
             <h2>배송비:</h2>
         </div>
         <div class="line1">
-            <h2 id="target1">총 결제금액:</h2>
+            <h2 id="target1" class="target1">총 결제금액:</h2>
         </div>
         <br /><br />
     </div><br /><br />
@@ -161,25 +208,25 @@
     <h3 style="margin-left:200px;">추천상품</h3>
     <table>
             <th>
-                <a href="Phonecase.html">
+                <a href="{% url 'phonecase' %}">
                 <img src="/static/PhoneCase/slimhard/case1.jpg">
                 <p class="title">딸기우유 슬림케이스</p></a>
                 <p class="title2">13000원</p>
             </th>
             <th>
-                <a href="Phonecase.html">
+                <a href="{% url 'phonecase' %}">
                 <img src="/static/PhoneCase/slimhard/case2.jpg">
                 <p class="title">바나나우유 슬림케이스</p></a>
                 <p class="title2">11000원</p>
             </th>
             <th>
-                <a href="Phonecase.html">
+                <a href="{% url 'phonecase' %}">
                 <img src="/static/PhoneCase/buffercase/case1.jpg">
                 <p class="title">무지개와 달 버퍼케이스</p></a>
                 <p class="title2">15000원</p>
             </th>
             <th>
-                <a href="Phonecase.html">
+                <a href="{% url 'phonecase' %}">
                 <img src="/static/PhoneCase/jellycase/case1.jpg">
                 <p class="title">작은 외계인 슬림케이스</p></a>
                 <p class="title2">11000원</p>
@@ -188,37 +235,38 @@
     </table>
     <table>
             <th>
-                <a href="Phonecase.html">
+                <a href="{% url 'phonecase' %}">
                 <img class="case_sample" src="/static/PhoneCase/jellycase/case2.jpg">
                 <p class="title">웨더투데이 슬림케이스</p></a>
                 <p class="title2">21000원</p>
             </th>
             <th>
-                <a href="Phonecase.html"> 
+                <a href="{% url 'phonecase' %}"> 
                 <img class="case_sample" src="/static/PhoneCase/buffercase/case2.jpg">
                 <p class="title">사랑스러운 너 범퍼케이스</p></a>
                 <p class="title2">16000원</p>
             </th>
             <th>
-            <a href="Phonecase.html">   
+            <a href="{% url 'phonecase' %}">   
             <img class="case_sample" src="/static/PhoneCase/jellycase/case3.jpg">
             <p class="title">공룡 투명 젤리케이스</p></a>
             <p class="title2">17000원</p>
             </th>
             <th>
-                <a href="Phonecase.html">
+                <a href="{% url 'phonecase' %}">
                 <img class="case_sample" src="/static/PhoneCase/slimhard/case3.jpg">
                 <p class="title">냐옹 슬림케이스</p></a>
                 <p class="title2">15000원</p>
             </th>
         </div>
     </table>
-    
+
     <!-- print footer -->
-    <footer style="height:200px;">
-        <p>@copyright by NickFuri</p>
-        <p>Team Avengers</p>
-    </footer>
+    <div id="Foot" style="height: 130px">
+            <small>
+                <span>© NICK FURY'S CASE SHOP. ALL RIGHTS RESERVED. | DESIGNED BY <a href="{% url 'home' %}">NF&F</a>.</span>
+            </small>
+        </div>
     <div class="container-fluid">
         <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-white" style=" opacity:0.8">
             <div class="collapse navbar-collapse" id="nav-content">

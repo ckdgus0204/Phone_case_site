@@ -157,7 +157,7 @@
             this.mouseUp = function (em) {
                 if (this.count == 1) {
                     var flag = confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-                    document.getElementsByClassName("best1")[this.num].src = "cart1.png";
+                    document.getElementsByClassName("best1")[this.num].src = "/static/Phonecase/cart1.png";
                     this.check = true;
                     this.count = 2;
                     if (flag) {
@@ -193,7 +193,7 @@
             this.mouseUp = function (em) {
                 if (this.count == 1) {
                     var flag = confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-                    document.getElementsByClassName("best2")[this.num].src = "cart1.png";
+                    document.getElementsByClassName("best2")[this.num].src = "/static/Phonecase/cart1.png";
                     img_idx = this.num; // for localStorage (global variable)
                     this.check = true;
                     this.count = 2;
@@ -230,7 +230,7 @@
             this.mouseUp = function (em) {
                 if (this.count == 1) {
                     var flag = confirm("장바구니로 이동하시겠습니까?");	//Selecting a product changes the image and registers it as the selected product
-                    document.getElementsByClassName("best3")[this.num].src = "cart1.png";
+                    document.getElementsByClassName("best3")[this.num].src = "/static/Phonecase/cart1.png";
                     this.check = true;
                     this.count = 2;
                     if (flag) {
@@ -318,9 +318,9 @@
                 localStorage.setItem("name", JSON.stringify(arr));
                 localStorage.setItem("price", JSON.stringify(sum));
                 localStorage.setItem("image", JSON.stringify(imgen));
-                localStorage.setItem("total", number);
+                localStorage.setItem("totalnum", JSON.stringify(number));
                 alert(arr);
-                location.href = "cart.html";
+                location.href="{% url 'cart'%}";
             }
             else		//Alert window if not selected
                 alert("장바구니에 든것이 없어요!");
@@ -475,7 +475,7 @@
 
     <div id="Foot">
         <small>
-            <span>© NICK FURY'S CASE SHOP. ALL RIGHTS RESERVED. | DESIGNED BY <a href="#map">NF&F</a>.</span>
+            <span>© NICK FURY'S CASE SHOP. ALL RIGHTS RESERVED. | DESIGNED BY <a href="{% url 'home' %}">NF&F</a>.</span>
         </small>
     </div>
 

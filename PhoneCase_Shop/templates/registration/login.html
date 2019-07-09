@@ -127,14 +127,26 @@ li a:hover:not(.active) {
     border:1px solid gray;
     border-radius:5px;
 }
-footer{
-    height:100px;
-    background-color: #ffede7;
-    text-align:center;
-    margin-top:80px;
-    padding:20px;
-    color:black;
-}
+#Foot {
+            margin-top: 30px;
+            color: white;
+            background-color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #Foot a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, .9);
+
+        }
+
+        #Foot span {
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            font-size: 0.80em;
+            color: rgba(255, 255, 255, .6);
+        }
     </style>
 </head>
 <body>
@@ -171,10 +183,11 @@ footer{
                             </form>
                           </div>
                         
-        <footer>
-            <p>@copyright by NickFuri</p>
-             <p>Team Avengers</p>
-        </footer>
+                          <div id="Foot">
+                              <small>
+                                  <span>© NICK FURY'S CASE SHOP. ALL RIGHTS RESERVED. | DESIGNED BY <a href="main.html">NF&F</a>.</span>
+                              </small>
+                          </div>
         {% endblock %}
 </body>
 </html>
